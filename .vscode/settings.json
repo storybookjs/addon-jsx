@@ -1,0 +1,8 @@
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut et les paramètres utilisateur.
+{
+    "prettier.bracketSpacing": true,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "editor.formatOnSave": true
+}

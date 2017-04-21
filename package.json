@@ -1,0 +1,38 @@
+{
+  "name": "storybook-addon-jsx",
+  "version": "0.0.1",
+  "description": "Display the JSX of the story",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir lib --ignore spec.js,test.js",
+    "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
+    "format": "prettier --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
+    "test": "npm run format && npm run test:all",
+    "test:all": "jest",
+    "test:dev": "jest --watch",
+    "prebuild": "rimraf lib",
+    "storybook": "start-storybook -p 9009 -c ./example/.storybook",
+    "preversion": "npm run build",
+    "release": "npm run release"
+  },
+  "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.24.1",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^19.0.2",
+    "prettier": "^1.2.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "release": "^1.2.1",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "jsx-to-string": "^1.1.0",
+    "prismjs": "^1.6.0"
+  }
+}
