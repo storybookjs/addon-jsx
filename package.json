@@ -29,10 +29,12 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "release": "^1.2.1",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "styled-components": "^1.4.5"
   },
   "dependencies": {
     "jsx-to-string": "^1.1.0",
-    "prismjs": "^1.6.0"
+    "prismjs": "^1.6.0",
+    "react-copy-to-clipboard": "^4.3.1"
   }
 }
