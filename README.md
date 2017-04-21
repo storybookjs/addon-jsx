@@ -54,4 +54,4 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 
 ## TODO
 
-- add a button for copy/paste the JSX code
+- add a button for copy/paste the JSX code - DONE
