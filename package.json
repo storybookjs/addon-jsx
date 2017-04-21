@@ -5,13 +5,9 @@
   "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
-    "prebuild": "rimraf lib && mkdir lib",
-    "build": "npm-run-all build:*",
-    "build:index": "browserify src/index.js -o lib/index.js",
-    "build:register": "browserify src/register.js -o lib/register.js",
-    "watch": "npm-run-all --parallel watch:*",
-    "watch:index": "watchify src/index.js -o lib/index.js",
-    "watch:register": "watchify src/register.js -o lib/register.js",
+    "prebuild": "rimraf lib",
+    "build": "babel src --out-dir lib --ignore spec.js,test.js",
+    "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
     "format": "prettier --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
     "test": "npm run format && npm run test:all",
     "test:all": "jest",
@@ -19,27 +15,19 @@
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
     "preversion": "npm run build"
   },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.24.1",
     "babel-jest": "^19.0.0",
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^7.3.0",
-    "browserify": "^14.3.0",
     "jest": "^19.0.2",
     "npm-run-all": "^4.0.2",
     "prettier": "^1.2.2",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "rimraf": "^2.6.1",
-    "watchify": "^3.9.0"
+    "rimraf": "^2.6.1"
   },
   "dependencies": {
     "jsx-to-string": "^1.1.0",
