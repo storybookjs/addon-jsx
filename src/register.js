@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import addons from '@kadira/storybook-addons'
 import Prism from 'prismjs'
-import styled from 'styled-components'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
 const css = `/**
@@ -203,14 +202,21 @@ export class JSX extends Component {
 
       return (
         <div>
-          <Copied text={code}>
+          <CopyToClipboard style={styles.btn} text={code}>
             <button>Copy</button>
-          </Copied>
-          <Code dangerouslySetInnerHTML={{ __html: jsx }} />
+          </CopyToClipboard>
+          <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
         </div>
       )
     } else {
-      return <Code />
+      return (
+        <div>
+          <CopyToClipboard style={styles.btn} text="" disabled>
+            <button>Copy</button>
+          </CopyToClipboard>
+          <pre style={styles.pre} />
+        </div>
+      )
     }
   }
 }
@@ -221,17 +227,23 @@ addons.register('kadira/jsx', api => {
   })
 })
 
-const Copied = styled(CopyToClipboard)`
-  position: absolute;
-  top: 17px;
-  left: 54px;
-  outline: none;
-  border: 1px solid #A7A7A7;
-  border-radius: 2px;
-  color: #A7A7A7;
-  background-color: transparent;
-  cursor: pointer;
-  transition: all .3s ease;
+const styles = {
+  pre: { padding: '5px 15px' },
+  btn: {
+    position: 'absolute',
+    top: 17,
+    left: 54,
+    outline: 'none',
+    border: '1px solid #A7A7A7',
+    borderRadius: 2,
+    color: '#A7A7A7',
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+    transition: 'all .3s ease',
+  },
+}
+
+/*
   &:hover {
     color: #777777;
     border: 1px solid #777777;
@@ -240,8 +252,4 @@ const Copied = styled(CopyToClipboard)`
     color: #111;
     border: 1px solid #111;
   }
-`
-
-const Code = styled.pre`
-  padding: 5px 15px;
-`
+*/

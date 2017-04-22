@@ -26,13 +26,7 @@ import JSXAddon from 'storybook-addon-jsx'
 
 setAddon(JSXAddon)
 
-const Test = ({
-  fontSize = '16px',
-  fontFamily = 'Arial',
-  align = 'left',
-  color = 'red',
-  children,
-}) => (
+const Test = ({ fontSize = '16px', fontFamily = 'Arial', align = 'left', color = 'red', children }) => (
   <div style={{ color, fontFamily, fontSize, textAlign: align }}>
     {children}
   </div>
@@ -49,9 +43,38 @@ storiesOf('test', module)
 storiesOf('test 2', module).addWithJSX('Paris', () => (
   <div color="#333">test</div>
 ))
-
 ```
 
-## TODO
+### OPTIONS
 
-- add a button for copy/paste the JSX code - DONE
+You can pass options as a third parameter.
+Options available: 
+
+- `skip` (default: 0) : Skip element in your component to display
+- Options from [jsx-to-string](https://www.npmjs.com/package/jsx-to-string#options)
+
+```javascript
+// Option displayName
+storiesOf('test 2', module).addWithJSX(
+  'Paris',
+  () => <TestContainer>Hello there</TestContainer>,
+  { displayName: 'Test' },
+)
+// Output
+// <Test>Hello there</Test>
+```
+
+```javascript
+//Option skip
+storiesOf('test 2', module).addWithJSX(
+  'Paris',
+  () => (
+    <div color="#333">
+      <Test>Hello</Test>
+    </div>
+  ),
+  { skip: 1 },
+)
+// Output
+// <Test>Hello</Test>
+```
