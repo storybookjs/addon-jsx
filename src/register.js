@@ -201,7 +201,7 @@ export class JSX extends Component {
       const jsx = Prism.highlight(code, Prism.languages.html)
 
       return (
-        <div>
+        <div style={{ position: 'relative', flex: 1 }}>
           <CopyToClipboard style={styles.btn} text={code}>
             <button>Copy</button>
           </CopyToClipboard>
@@ -210,7 +210,7 @@ export class JSX extends Component {
       )
     } else {
       return (
-        <div>
+        <div style={styles.container}>
           <CopyToClipboard style={styles.btn} text="" disabled>
             <button>Copy</button>
           </CopyToClipboard>
@@ -228,11 +228,12 @@ addons.register('kadira/jsx', api => {
 })
 
 const styles = {
+  container: { position: 'relative' },
   pre: { padding: '5px 15px' },
   btn: {
     position: 'absolute',
-    top: 17,
-    left: 54,
+    bottom: 10,
+    right: 10,
     outline: 'none',
     border: '1px solid #A7A7A7',
     borderRadius: 2,
