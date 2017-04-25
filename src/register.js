@@ -3,171 +3,76 @@ import addons from '@kadira/storybook-addons'
 import Prism from 'prismjs'
 import CopyToClipboard from 'react-copy-to-clipboard'
 
-const css = `/**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
+import globalStyle from './css'
 
-code[class*="language-"],
-pre[class*="language-"] {
-	color: black;
-	background: none;
-	text-shadow: 0 1px white;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
-	text-shadow: none;
-	background: #b3d4fc;
-}
-
-@media print {
-	code[class*="language-"],
-	pre[class*="language-"] {
-		text-shadow: none;
-	}
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #f5f2f0;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
-	white-space: normal;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: slategray;
-}
-
-.token.punctuation {
-	color: #999;
-}
-
-.namespace {
-	opacity: .7;
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-	color: #905;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-	color: #690;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-	color: #a67f59;
-	background: hsla(0, 0%, 100%, .5);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword {
-	color: #07a;
-}
-
-.token.function {
-	color: #DD4A68;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-	color: #e90;
-}
-
-.token.important,
-.token.bold {
-	font-weight: bold;
-}
-.token.italic {
-	font-style: italic;
-}
-
-.token.entity {
-	cursor: help;
-}
-`
 const prismStyle = document.createElement('style')
-prismStyle.innerHTML = css
+prismStyle.innerHTML = globalStyle
 document.body.appendChild(prismStyle)
 
+const Observable = (channel, api) => {
+  return listener => {
+    channel.on('kadira/jsx/add_jsx', listener.next('jsx'))
+    api.onStory(listener.next('current'))
+  }
+}
+
 export class JSX extends Component {
-  constructor(...args) {
-    super(...args)
+  constructor(props, ...args) {
+    super(props, ...args)
+    props.ob({
+      next: type =>
+        (type === 'jsx'
+          ? this.onAddJSX.bind(this)
+          : this.setCurrent.bind(this)),
+    })
 
     this.state = {}
-    this.onAddJSX = this.onAddJSX.bind(this)
     this.stopListeningOnStory = () => this.setState({})
   }
 
-  componentDidMount() {
-    const { channel, api } = this.props
-
-    channel.on('kadira/jsx/add_jsx', this.onAddJSX)
-    api.onStory(this.setCurrent.bind(this))
+  setCurrent(kind, story) {
+    this.setState({ current: { kind, story } })
   }
 
-  componentWillUnmount() {
-    const { channel } = this.props
+  onAddJSX(kind, story, jsx) {
+    const state = this.state
 
-    if (this.stopListeningOnStory) {
-      this.stopListeningOnStory()
+    if (typeof state[kind] === 'undefined') {
+      state[kind] = {}
     }
-    channel.removeListener('kadira/jsx/add_jsx', this.onAddJSX)
+    state[kind][story] = jsx
+    this.setState(state)
+  }
+  render() {
+    if (
+      typeof this.state.current !== 'undefined' &&
+      typeof this.state[this.state.current.kind] !== 'undefined'
+    ) {
+      const current = this.state.current
+      const code = this.state[current.kind][current.story]
+      const jsx = Prism.highlight(code, Prism.languages.html)
+
+      return (
+        <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
+      )
+    } else {
+      return <pre style={styles.pre} />
+    }
+  }
+}
+
+class Title extends Component {
+  constructor(props, ...args) {
+    super(props, ...args)
+    props.ob({
+      next: type =>
+        (type === 'jsx'
+          ? this.onAddJSX.bind(this)
+          : this.setCurrent.bind(this)),
+    })
+
+    this.state = {}
+    this.stopListeningOnStory = () => this.setState({})
   }
 
   setCurrent(kind, story) {
@@ -201,56 +106,49 @@ export class JSX extends Component {
       const jsx = Prism.highlight(code, Prism.languages.html)
 
       return (
-        <div style={{ position: 'relative', flex: 1 }}>
+        <div>
+          <span style={styles.title}>JSX</span>
           <CopyToClipboard style={styles.btn} text={code}>
             <button>Copy</button>
           </CopyToClipboard>
-          <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
         </div>
       )
     } else {
       return (
-        <div style={styles.container}>
+        <div>
+          <span style={styles.title}>JSX</span>
           <CopyToClipboard style={styles.btn} text="" disabled>
             <button>Copy</button>
           </CopyToClipboard>
-          <pre style={styles.pre} />
         </div>
       )
     }
   }
 }
 addons.register('kadira/jsx', api => {
+  const ob = Observable(addons.getChannel(), api)
+
   addons.addPanel('kadira/jsx/panel', {
-    title: 'JSX',
-    render: () => <JSX channel={addons.getChannel()} api={api} />,
+    title: <Title ob={ob} />,
+    render: () => <JSX ob={ob} />,
   })
 })
 
 const styles = {
-  container: { position: 'relative' },
-  pre: { padding: '5px 15px' },
+  pre: { flex: 1, padding: '5px 15px' },
+  title: {
+    marginRight: 8,
+  },
   btn: {
-    position: 'absolute',
-    bottom: 10,
-    right: 10,
+    flex: 1,
     outline: 'none',
     border: '1px solid #A7A7A7',
     borderRadius: 2,
     color: '#A7A7A7',
+    padding: 2,
+    margin: 0,
     backgroundColor: 'transparent',
     cursor: 'pointer',
     transition: 'all .3s ease',
   },
 }
-
-/*
-  &:hover {
-    color: #777777;
-    border: 1px solid #777777;
-  }
-  &:active {
-    color: #111;
-    border: 1px solid #111;
-  }
-*/
