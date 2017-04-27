@@ -21,7 +21,7 @@ storiesOf('test', module)
     'Paris',
     () => (
       <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
-        <Test />
+        <Test onChange={() => console.log('test')} />
         <Test>Hello</Test>
       </Test>
     ),
@@ -30,6 +30,22 @@ storiesOf('test', module)
   .addWithJSX('Orleans', () => (
     <Test align="test" font={['test', 't', 'test']} />
   ))
+  .addWithJSX('Test fn', () => (
+    <div>
+      {() => <span>Hello</span>}
+    </div>
+  ))
+  .addWithJSX(
+    'Orleans',
+    () => (
+      <div>
+        <div>
+          {() => <span>Hello</span>}
+        </div>
+      </div>
+    ),
+    { skip: 2 },
+  )
 
 storiesOf('test 2', module).addWithJSX(
   'Paris',
