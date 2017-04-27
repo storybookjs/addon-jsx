@@ -4,6 +4,27 @@ import JSXAddon from '../../lib/index'
 
 setAddon(JSXAddon)
 
+class ControlledWrapper extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { value: props.defaultValue }
+  }
+  render() {
+    return this.props.children(this.state.value, (name, newValue) =>
+      this.setState({ value: newValue }),
+    )
+  }
+}
+const withErrors = BaseComponent => props => {
+  const { name, errors, showErrors, ...baseProps } = props
+  let childErrors = null
+  if (showErrors && errors) {
+    const correspondingErrors = errors.filter(error => error.field === name)
+    if (correspondingErrors.length > 0) childErrors = correspondingErrors
+  }
+  return <BaseComponent {...baseProps} name={name} errors={childErrors} />
+}
+
 const Test = ({
   fontSize = '16px',
   fontFamily = 'Arial',
@@ -15,6 +36,14 @@ const Test = ({
     {children}
   </div>
 )
+
+class NumberPicker extends React.Component {
+  render() {
+    return <div />
+  }
+}
+// const NumberPicker = ({ name, value, onChange }) => <div />
+const NumberWithError = withErrors(NumberPicker)
 
 storiesOf('test', module)
   .addWithJSX(
@@ -32,7 +61,7 @@ storiesOf('test', module)
   ))
   .addWithJSX('Test fn', () => (
     <div>
-      {() => <span>Hello</span>}
+      {() => <span>Hola</span>}
     </div>
   ))
   .addWithJSX(
@@ -46,6 +75,24 @@ storiesOf('test', module)
     ),
     { skip: 2 },
   )
+
+storiesOf('Number Picker', module).addWithJSX(
+  'Base',
+  () => (
+    <ControlledWrapper defaultValue={0}>
+      {(value, onChange) => (
+        <NumberWithError
+          name="testnumber"
+          value={value}
+          onChange={onChange}
+          errors={[]}
+          showErrors={() => {}}
+        />
+      )}
+    </ControlledWrapper>
+  ),
+  { skip: 0 },
+)
 
 storiesOf('test 2', module).addWithJSX(
   'Paris',

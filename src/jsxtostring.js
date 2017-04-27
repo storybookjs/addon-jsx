@@ -52,7 +52,10 @@ function serializeItem(item, options, delimit = true) {
     const items = item.map(i => serializeItem(i, options)).join(delimiter)
     result = delimit ? `[${items}]` : `${items}`
   } else if (React.isValidElement(item)) {
-    result = jsxToString(item, options)
+    let el = item
+    if (typeof item.type === 'function' && item.type.name === '')
+      el = item.type(item.props)
+    result = jsxToString(el, options)
   } else if (typeof item === 'object') {
     result = stringify(stringifyObject(item, options))
     // remove string quotes from embeded JSX values
@@ -80,7 +83,6 @@ function jsxToString(component, options) {
     spacing: 0,
     detectFunctions: false,
   }
-
   const opts = Object.assign({}, baseOpts, options)
 
   const componentData = {
