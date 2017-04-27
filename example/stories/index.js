@@ -21,12 +21,15 @@ storiesOf('test', module)
     'Paris',
     () => (
       <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
-        Hello
+        <Test />
+        <Test>Hello</Test>
       </Test>
     ),
     { displayName: 'Testeru' },
   )
-  .addWithJSX('Orleans', () => <Test color="#236544">Hello</Test>)
+  .addWithJSX('Orleans', () => (
+    <Test align="test" font={['test', 't', 'test']} />
+  ))
 
 storiesOf('test 2', module).addWithJSX(
   'Paris',

@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "jsx-to-string": "^1.1.0",
-    "prismjs": "^1.6.0",
     "react-copy-to-clipboard": "^4.3.1"
   }
 }
