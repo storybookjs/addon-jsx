@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Prism from './prism.min'
+import Prism from './prism'
 
 import globalStyle from './css'
 
