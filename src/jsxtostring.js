@@ -25,7 +25,7 @@ function stringifyObject(object, opts) {
         value = stringifyObject(value, opts)
       } else if (typeof value === 'function') {
         value = opts.useFunctionCode
-          ? opts.functionNameOnly ? item.name.toString() : item.toString()
+          ? opts.functionNameOnly ? object.name.toString() : object.toString()
           : `...`
       }
       result[key] = value
