@@ -15,12 +15,19 @@ export default {
     for (let i = 0; i < options.skip; i++) {
       if (typeof code.props.children === 'undefined') {
         console.warn('Not enough children to skip elements.')
-        return code
+
+        if (typeof code.type === 'function' && code.type.name === '')
+          code = code.type(code.props)
+      } else {
+        if (typeof code.props.children === 'function') {
+          code = code.props.children()
+        } else {
+          code = code.props.children
+        }
       }
-      code = typeof code.props.children === 'function'
-        ? code.props.children()
-        : code.props.children
     }
+    while (typeof code.type === 'function' && code.type.name === '')
+      code = code.type(code.props)
 
     channel.emit('kadira/jsx/add_jsx', result.kind, kind, toJSX(code, options))
     return result
