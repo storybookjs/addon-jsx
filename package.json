@@ -28,7 +28,8 @@
     "prettier": "^1.2.2",
     "prop-types": "^15.5.8",
     "react-dom": "^15.5.4",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "storyshots": "^3.2.2"
   },
   "dependencies": {
     "immutable": "4.0.0-rc.2",

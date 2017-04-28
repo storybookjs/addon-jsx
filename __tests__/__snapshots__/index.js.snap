@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Deep Test No children - No options 1`] = `
+<div>
+  <div>
+    <ul>
+      <li>
+        Deeper
+      </li>
+    </ul>
+    <div>
+      <div>
+        <span>
+          Hello
+        </span>
+        <div>
+          <div>
+            <div>
+              <div>
+                <span>
+                  Hello
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Deep Test No children - Rename 1`] = `
+<div>
+  <div>
+    <div>
+      <div>
+        <span>
+          Hello
+        </span>
+        <div>
+          <div>
+            <div>
+              <div>
+                <span>
+                  Hello
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Deep Test With children - No options 1`] = `
+<div>
+  <div>
+    <div>
+      <div>
+        <span>
+          Hello
+        </span>
+        <div>
+          <div>
+            <div>
+              <div>
+                <span>
+                  Hello
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Deep Test With children - Skip 1`] = `
+<div>
+  <div>
+    <div>
+      <div>
+        <span>
+          Hello
+        </span>
+        <div>
+          <div>
+            <div>
+              <div>
+                <span>
+                  Hello
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Deep Test With children - Skip and rename 1`] = `
+<div>
+  <div>
+    <ul>
+      <li>
+        Deeper
+      </li>
+    </ul>
+    <div>
+      <div>
+        <span>
+          Hello
+        </span>
+        <div>
+          <div>
+            <div>
+              <div>
+                <span>
+                  Hello
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Function as a children Deep function - No options 1`] = `<div />`;
+
+exports[`Storyshots Function as a children Deep function - Skip 1`] = `<div />`;
+
+exports[`Storyshots Function as a children No options 1`] = `
+<div>
+  <span>
+    World
+  </span>
+</div>
+`;
+
+exports[`Storyshots Function as a children Skip 1`] = `
+<div>
+  <span>
+    World
+  </span>
+</div>
+`;
+
+exports[`Storyshots Function as a children Skip and Rename 1`] = `
+<div>
+  <span>
+    World
+  </span>
+</div>
+`;
+
+exports[`Storyshots Simple Test No children - No options 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots Simple Test No children - Rename 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots Simple Test With children - No options 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots Simple Test With children - Skip 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots Simple Test With children - Skip and rename 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;

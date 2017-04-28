@@ -12,7 +12,7 @@ setOptions({
   showDownPanel: true,
   showSearchBox: false,
   downPanelInRight: true,
-  sortStoriesByKind: true,
+  sortStoriesByKind: false,
 })
 
 configure(loadStories, module)
