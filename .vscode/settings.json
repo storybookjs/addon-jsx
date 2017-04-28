@@ -4,5 +4,6 @@
     "prettier.semi": false,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "all",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2
 }
