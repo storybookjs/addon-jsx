@@ -1,5 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Children Array Simple Array 1`] = `
+<div>
+  <div />
+  <div />
+</div>
+`;
+
 exports[`Storyshots Deep Test No children - No options 1`] = `
 <div>
   <div>

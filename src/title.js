@@ -1,39 +1,36 @@
-import React, { Component } from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard'
+import React, { Component } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 class Title extends Component {
   constructor(props, ...args) {
-    super(props, ...args)
+    super(props, ...args);
     props.ob({
-      next: type =>
-        (type === 'jsx'
-          ? this.onAddJSX.bind(this)
-          : this.setCurrent.bind(this)),
-    })
+      next: type => (type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)),
+    });
 
-    this.state = {}
-    this.stopListeningOnStory = () => this.setState({})
+    this.state = {};
+    this.stopListeningOnStory = () => this.setState({});
   }
 
   setCurrent(kind, story) {
-    this.setState({ current: { kind, story } })
+    this.setState({ current: { kind, story } });
   }
 
   onAddJSX(kind, story, jsx) {
-    const state = this.state
+    const state = this.state;
 
     if (typeof state[kind] === 'undefined') {
-      state[kind] = {}
+      state[kind] = {};
     }
-    state[kind][story] = jsx
-    this.setState(state)
+    state[kind][story] = jsx;
+    this.setState(state);
   }
   _copy() {
     if (
       typeof this.state.current !== 'undefined' &&
       typeof this.state[this.state.current.kind] !== 'undefined'
     ) {
-      Copy.copy(this.state[current.kind][current.story])
+      Copy.copy(this.state[current.kind][current.story]);
     }
   }
   render() {
@@ -41,8 +38,8 @@ class Title extends Component {
       typeof this.state.current !== 'undefined' &&
       typeof this.state[this.state.current.kind] !== 'undefined'
     ) {
-      const current = this.state.current
-      const code = this.state[current.kind][current.story]
+      const current = this.state.current;
+      const code = this.state[current.kind][current.story];
 
       return (
         <div>
@@ -51,7 +48,7 @@ class Title extends Component {
             <button>Copy</button>
           </CopyToClipboard>
         </div>
-      )
+      );
     } else {
       return (
         <div>
@@ -60,12 +57,12 @@ class Title extends Component {
             <button>Copy</button>
           </CopyToClipboard>
         </div>
-      )
+      );
     }
   }
 }
 
-export default Title
+export default Title;
 
 const styles = {
   title: {
@@ -83,4 +80,4 @@ const styles = {
     cursor: 'pointer',
     transition: 'all .3s ease',
   },
-}
+};
