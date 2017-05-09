@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Children Array Array with function 1`] = `
+<div>
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Storyshots Children Array Array with nested component 1`] = `
+<div>
+  <div />
+  <div>
+    <span>
+      Hello
+    </span>
+    <span>
+      hello
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Children Array Simple Array 1`] = `
 <div>
   <div />
@@ -203,6 +225,46 @@ exports[`Storyshots Simple Test With children - Skip 1`] = `
 `;
 
 exports[`Storyshots Simple Test With children - Skip and rename 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots With Props No children - No options 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots With Props No children - Rename 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots With Props With children - No options 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots With Props With children - Skip 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+</div>
+`;
+
+exports[`Storyshots With Props With children - Skip and rename 1`] = `
 <div>
   <span>
     Hello
