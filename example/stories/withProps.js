@@ -42,5 +42,5 @@ export default () =>
           </Simple>
         </Simple>
       ),
-      { skip: 1, displayName: 'Renamed' },
+      { skip: 1, displayName: () => 'Renamed' },
     )

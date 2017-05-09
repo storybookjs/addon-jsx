@@ -46,7 +46,7 @@ export default () =>
         </div>
       ),
       {
-        displayName: 'Renamed',
+        displayName: () => 'Renamed',
       },
     )
     .addWithJSX('With children - No options', () => (
@@ -94,5 +94,5 @@ export default () =>
           </div>
         </div>
       ),
-      { skip: 1, displayName: 'Renamed' },
+      { skip: 1, displayName: () => 'Renamed' },
     )
