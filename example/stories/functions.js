@@ -41,7 +41,7 @@ export default () =>
           {() => <span>World</span>}
         </Simple>
       ),
-      { skip: 1, displayName: 'Renamed' },
+      { skip: 1, displayName: () => 'Renamed' },
     )
     .addWithJSX('Deep function - No options', () => (
       <div>

@@ -1,12 +1,12 @@
 import React from 'react'
-import toJSX from './jsxtostring'
 import addons from '@kadira/storybook-addons'
+import reactElementToJSXString from 'react-element-to-jsx-string'
 
 export default {
   addWithJSX(kind, story, opts = {}) {
     const defaultOpts = {
       skip: 0,
-      useFunctionCode: true,
+      showFunctions: true,
     }
     const channel = addons.getChannel()
     const result = this.add(kind, story)
@@ -44,8 +44,12 @@ export default {
     while (typeof code.type === 'function' && code.type.name === '')
       code = code.type(code.props)
 
+    const ooo = typeof options.displayName === 'string'
+      ? Object.assign({}, options, { displayName: () => options.displayName })
+      : options
+
     const compiledCode = React.Children
-      .map(code, code => toJSX(code, options))
+      .map(code, c => reactElementToJSXString(c, ooo))
       .join('\n')
 
     channel.emit('kadira/jsx/add_jsx', result.kind, kind, compiledCode)
