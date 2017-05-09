@@ -51,14 +51,14 @@ You can pass options as a third parameter.
 Options available: 
 
 - `skip` (default: 0) : Skip element in your component to display
-- Options from [jsx-to-string](https://www.npmjs.com/package/jsx-to-string#options)
+- Options from [react-element-to-jsx-strin](https://github.com/algolia/react-element-to-jsx-string)
 
 ```javascript
 // Option displayName
 storiesOf('test 2', module).addWithJSX(
   'Paris',
   () => <TestContainer>Hello there</TestContainer>,
-  { displayName: 'Test' },
+  { displayName: 'Test' }, // can be a function { displayName: element => 'Test' }
 )
 // Output
 // <Test>Hello there</Test>
