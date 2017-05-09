@@ -12,7 +12,18 @@ export default {
     const result = this.add(kind, story)
     const options = Object.assign({}, defaultOpts, opts)
     let code = story()
+
     for (let i = 0; i < options.skip; i++) {
+      if (typeof code === 'undefined') {
+        console.warn('Cannot skip undefined element')
+        return
+      }
+
+      if (React.Children.count(code) > 1) {
+        console.warn('Trying to skip an array of elements')
+        return
+      }
+
       if (typeof code.props.children === 'undefined') {
         console.warn('Not enough children to skip elements.')
 
@@ -26,10 +37,18 @@ export default {
         }
       }
     }
+
+    if (typeof code === 'undefined')
+      return console.warn('Too many skip or undefined component')
+
     while (typeof code.type === 'function' && code.type.name === '')
       code = code.type(code.props)
 
-    channel.emit('kadira/jsx/add_jsx', result.kind, kind, toJSX(code, options))
+    const compiledCode = React.Children
+      .map(code, code => toJSX(code, options))
+      .join('\n')
+
+    channel.emit('kadira/jsx/add_jsx', result.kind, kind, compiledCode)
     return result
   },
 }
