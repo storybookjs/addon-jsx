@@ -8,7 +8,7 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
-    "format": "prettier --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
+    "format": "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
     "test": "npm run format && npm run test:all",
     "test:all": "jest",
     "test:dev": "jest --watch",
@@ -34,6 +34,6 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-copy-to-clipboard": "4.3.1",
-    "react-element-to-jsx-string": "^6.4.0"
+    "react-element-to-jsx-string": "6.3.0"
   }
 }

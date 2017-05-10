@@ -5,10 +5,7 @@ class Title extends Component {
   constructor(props, ...args) {
     super(props, ...args)
     props.ob({
-      next: type =>
-        (type === 'jsx'
-          ? this.onAddJSX.bind(this)
-          : this.setCurrent.bind(this)),
+      next: type => (type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)),
     })
 
     this.state = {}

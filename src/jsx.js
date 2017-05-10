@@ -11,10 +11,7 @@ export default class JSX extends Component {
   constructor(props, ...args) {
     super(props, ...args)
     props.ob({
-      next: type =>
-        (type === 'jsx'
-          ? this.onAddJSX.bind(this)
-          : this.setCurrent.bind(this)),
+      next: type => (type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)),
     })
 
     this.state = {}
@@ -43,9 +40,7 @@ export default class JSX extends Component {
       const code = this.state[current.kind][current.story]
       const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : ''
 
-      return (
-        <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
-      )
+      return <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
     } else {
       return <pre style={styles.pre} />
     }

@@ -27,8 +27,7 @@ export default {
       if (typeof code.props.children === 'undefined') {
         console.warn('Not enough children to skip elements.')
 
-        if (typeof code.type === 'function' && code.type.name === '')
-          code = code.type(code.props)
+        if (typeof code.type === 'function' && code.type.name === '') code = code.type(code.props)
       } else {
         if (typeof code.props.children === 'function') {
           code = code.props.children()
@@ -38,8 +37,7 @@ export default {
       }
     }
 
-    if (typeof code === 'undefined')
-      return console.warn('Too many skip or undefined component')
+    if (typeof code === 'undefined') return console.warn('Too many skip or undefined component')
 
     while (typeof code.type === 'function' && code.type.name === '')
       code = code.type(code.props)
@@ -48,9 +46,7 @@ export default {
       ? Object.assign({}, options, { displayName: () => options.displayName })
       : options
 
-    const compiledCode = React.Children
-      .map(code, c => reactElementToJSXString(c, ooo))
-      .join('\n')
+    const compiledCode = React.Children.map(code, c => reactElementToJSXString(c, ooo)).join('\n')
 
     channel.emit('kadira/jsx/add_jsx', result.kind, kind, compiledCode)
     return result

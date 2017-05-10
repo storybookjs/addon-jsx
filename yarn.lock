@@ -3977,15 +3977,15 @@ react-dom@^15.5.4:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-element-to-jsx-string@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-6.4.0.tgz#3a7cdbce3dc8576e0096c735e60a85d704210a23"
+react-element-to-jsx-string@6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-element-to-jsx-string/-/react-element-to-jsx-string-6.3.0.tgz#f598cbcef49338dd1ef211fc3c0e9c6a4ec91e26"
   dependencies:
     collapse-white-space "^1.0.0"
     is-plain-object "^2.0.1"
     lodash "^4.17.4"
     sortobject "^1.0.0"
-    stringify-object "^3.2.0"
+    stringify-object "^3.1.0"
     traverse "^0.6.6"
 
 react-fuzzy@^0.3.3:
@@ -4579,7 +4579,7 @@ string_decoder@~1.0.0:
   dependencies:
     buffer-shims "~1.0.0"
 
-stringify-object@^3.2.0:
+stringify-object@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/stringify-object/-/stringify-object-3.2.0.tgz#94370a135e41bc048358813bf99481f1315c6aa6"
   dependencies:
