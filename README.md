@@ -7,6 +7,12 @@ It can be usefull to see what props you set for example.
 
 ## Getting started
 
+If you use a react-dom version under 15.5.0 then use :
+
+` yarn add --dev storybook-addon-jsx@2.1.2 `
+
+otherwise for react-dom >= 15.5.0 use :
+
 ` yarn add --dev storybook-addon-jsx `
 
 Create a file called `addons.js` in your storybook config (default: `.storybook`) :
