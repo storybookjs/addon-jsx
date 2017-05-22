@@ -2,6 +2,8 @@ import React from 'react'
 import addons from '@kadira/storybook-addons'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
+const compile = story => {}
+
 export default {
   addWithJSX(kind, story, opts = {}) {
     const defaultOpts = {
@@ -9,46 +11,56 @@ export default {
       showFunctions: true,
     }
     const channel = addons.getChannel()
-    const result = this.add(kind, story)
-    const options = Object.assign({}, defaultOpts, opts)
-    let code = story()
 
-    for (let i = 0; i < options.skip; i++) {
-      if (typeof code === 'undefined') {
-        console.warn('Cannot skip undefined element')
-        return
-      }
+    let finalStory
+    this.addDecorator((x, ctx) => {
+      const res = x(ctx)
 
-      if (React.Children.count(code) > 1) {
-        console.warn('Trying to skip an array of elements')
-        return
-      }
+      let code = res
 
-      if (typeof code.props.children === 'undefined') {
-        console.warn('Not enough children to skip elements.')
+      for (let i = 0; i < options.skip; i++) {
+        if (typeof code === 'undefined') {
+          console.warn('Cannot skip undefined element')
+          return
+        }
 
-        if (typeof code.type === 'function' && code.type.name === '') code = code.type(code.props)
-      } else {
-        if (typeof code.props.children === 'function') {
-          code = code.props.children()
+        if (React.Children.count(code) > 1) {
+          console.warn('Trying to skip an array of elements')
+          return
+        }
+
+        if (typeof code.props.children === 'undefined') {
+          console.warn('Not enough children to skip elements.')
+
+          if (typeof code.type === 'function' && code.type.name === '') code = code.type(code.props)
         } else {
-          code = code.props.children
+          if (typeof code.props.children === 'function') {
+            code = code.props.children()
+          } else {
+            code = code.props.children
+          }
         }
       }
-    }
 
-    if (typeof code === 'undefined') return console.warn('Too many skip or undefined component')
+      if (typeof code === 'undefined') return console.warn('Too many skip or undefined component')
 
-    while (typeof code.type === 'function' && code.type.name === '')
-      code = code.type(code.props)
+      while (typeof code.type === 'function' && code.type.name === '')
+        code = code.type(code.props)
 
-    const ooo = typeof options.displayName === 'string'
-      ? Object.assign({}, options, { displayName: () => options.displayName })
-      : options
+      const ooo = typeof options.displayName === 'string'
+        ? Object.assign({}, options, { displayName: () => options.displayName })
+        : options
 
-    const compiledCode = React.Children.map(code, c => reactElementToJSXString(c, ooo)).join('\n')
+      const compiledCode = React.Children.map(code, c => reactElementToJSXString(c, ooo)).join('\n')
 
-    channel.emit('kadira/jsx/add_jsx', result.kind, kind, compiledCode)
+      channel.emit('kadira/jsx/add_jsx', result.kind, kind, compiledCode)
+
+      return res
+    })
+
+    const result = this.add(kind, story)
+    const options = Object.assign({}, defaultOpts, opts)
+
     return result
   },
 }
