@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+cache: yarn
+notifications:
+  email: false
+node_js:
+  - '6'
+script:
+  - npm test
+  - npm run format
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
