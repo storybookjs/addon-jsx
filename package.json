@@ -13,7 +13,7 @@
     "test:all": "jest src",
     "test:dev": "jest src --watch",
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
-    "preversion": "npm run build"
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
