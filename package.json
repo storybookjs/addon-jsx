@@ -9,9 +9,9 @@
     "build": "babel src --out-dir lib --ignore spec.js,test.js",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
     "format": "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
-    "test": "npm run format && npm run test:all",
-    "test:all": "jest",
-    "test:dev": "jest --watch",
+    "test": "npm run test:all",
+    "test:all": "jest src",
+    "test:dev": "jest src --watch",
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
     "preversion": "npm run build"
   },

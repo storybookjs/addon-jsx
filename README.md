@@ -1,4 +1,10 @@
-# storybook-addon-jsx
+<h1><a href="https://github.com/Kilix/storybook-addon-jsx">storybook-addon-jsx</a></h1>
+<br />
+
+[![Build Status](https://travis-ci.org/Kilix/storybook-addon-jsx.svg?branch=master)](https://travis-ci.org/Kilix/storybook-addon-jsx)
+[![Total Download](https://img.shields.io/npm/dt/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
+[![Current Version](https://img.shields.io/npm/v/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
+
 
 This Storybook addon show you the JSX of the story.
 It can be usefull to see what props you set for example.

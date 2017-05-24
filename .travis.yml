@@ -6,8 +6,8 @@ notifications:
 node_js:
   - '6'
 script:
+  - npm build
   - npm test
-  - npm run format
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
