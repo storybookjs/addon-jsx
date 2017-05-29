@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
 
 const Simple = ({ children }) => (
   <div><span>Hello</span>{children ? () => <div>chidren</div> : null}</div>
@@ -7,16 +7,10 @@ const Simple = ({ children }) => (
 
 export default () =>
   storiesOf('With Props', module)
-    .addWithJSX('No children - No options', () => (
-      <Simple test="test" value={true} />
-    ))
-    .addWithJSX(
-      'No children - Rename',
-      () => <Simple test="test" value={true} />,
-      {
-        displayName: 'Renamed',
-      },
-    )
+    .addWithJSX('No children - No options', () => <Simple test="test" value={true} />)
+    .addWithJSX('No children - Rename', () => <Simple test="test" value={true} />, {
+      displayName: 'Renamed',
+    })
     .addWithJSX('With children - No options', () => (
       <Simple test="test" value={true}>
         <span>World</span>

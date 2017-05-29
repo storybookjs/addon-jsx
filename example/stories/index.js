@@ -1,5 +1,5 @@
 import React from 'react'
-import { setAddon } from '@kadira/storybook'
+import { setAddon } from '@storybook/react'
 import JSXAddon from '../../lib/index'
 
 import SimpleStories from './simple'
