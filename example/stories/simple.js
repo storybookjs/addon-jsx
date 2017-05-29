@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
 
 const Simple = ({ children }) => (
   <div><span>Hello</span>{children ? () => <div>chidren</div> : null}</div>

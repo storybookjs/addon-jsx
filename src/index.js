@@ -1,5 +1,5 @@
 import React from 'react'
-import addons from '@kadira/storybook-addons'
+import addons from '@storybook/addons'
 import reactElementToJSXString from 'react-element-to-jsx-string'
 
 const renderJsx = (code, options) => {

@@ -1,13 +1,11 @@
 import React from 'react'
-import { storiesOf } from '@kadira/storybook'
+import { storiesOf } from '@storybook/react'
 
 class Simple extends React.Component {
   render() {
     return (
       <div>
-        {typeof this.props.children === 'function'
-          ? this.props.children()
-          : this.props.children}
+        {typeof this.props.children === 'function' ? this.props.children() : this.props.children}
       </div>
     )
   }
