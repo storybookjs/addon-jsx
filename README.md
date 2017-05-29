@@ -13,6 +13,10 @@ It can be usefull to see what props you set for example.
 
 ## Getting started
 
+To use with storybook v3 :
+
+` yarn add --dev storybook-addon-jsx@beta `
+
 If you use a react-dom version under 15.5.0 then use :
 
 ` yarn add --dev storybook-addon-jsx@2.1.2 `
@@ -60,7 +64,7 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 ### OPTIONS
 
 You can pass options as a third parameter.
-Options available: 
+Options available:
 
 - `skip` (default: 0) : Skip element in your component to display
 - Options from [react-element-to-jsx-strin](https://github.com/algolia/react-element-to-jsx-string)
