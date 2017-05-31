@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="538" viewBox="0 0 420 538">
+  <g fill="none" fill-rule="evenodd">
+    <g fill-rule="nonzero">
+      <polygon fill="#B57EE5" points="42 492 18 0 0 0 18 492" transform="translate(0 28)"/>
+      <polygon fill="#F1618C" points="24 520 0 28 392 0 392 538" transform="translate(28)"/>
+      <polygon fill="#FFF" points="0 71 5 4 52 0 52 71 28.364 49.618" transform="translate(320 1)"/>
+    </g>
+    <text fill="#FFF" font-family="Futura-Medium, Futura" font-size="190" font-weight="400">
+      <tspan x="73.97" y="331">JSX</tspan>
+    </text>
+  </g>
+</svg>

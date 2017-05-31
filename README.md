@@ -1,5 +1,7 @@
-<h1><a href="https://github.com/Kilix/storybook-addon-jsx">storybook-addon-jsx</a></h1>
-<br />
+<div style="flex: 1;display:flex; flex-direction:column; align-items: center; justify-content:center;">
+<img src="storybook-jsx.svg" width=100 />
+<h1 style="width: 100%; text-align:center;">Storybook-addon-jsx</h1>
+</div>
 
 [![Build Status](https://travis-ci.org/Kilix/storybook-addon-jsx.svg?branch=master)](https://travis-ci.org/Kilix/storybook-addon-jsx)
 [![Total Download](https://img.shields.io/npm/dt/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
