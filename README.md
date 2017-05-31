@@ -13,15 +13,11 @@ It can be usefull to see what props you set for example.
 
 ## Getting started
 
-To use with storybook v3 :
-
-` yarn add --dev storybook-addon-jsx@beta `
-
 If you use a react-dom version under 15.5.0 then use :
 
 ` yarn add --dev storybook-addon-jsx@2.1.2 `
 
-otherwise for react-dom >= 15.5.0 use :
+otherwise for react-dom >= 15.5.0 use and storybook v3:
 
 ` yarn add --dev storybook-addon-jsx `
 
