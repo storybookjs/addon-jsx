@@ -16,9 +16,9 @@
     "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@storybook/addon-options": "^3.0.0-alpha.0",
-    "@storybook/addon-storyshots": "^3.0.0-alpha.0",
-    "@storybook/react": "^3.0.0-alpha.0",
+    "@storybook/addon-options": "^3.0.0",
+    "@storybook/addon-storyshots": "^3.0.0",
+    "@storybook/react": "^3.0.0",
     "babel-cli": "^6.24.1",
     "babel-jest": "^19.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
