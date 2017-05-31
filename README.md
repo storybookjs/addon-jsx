@@ -1,5 +1,5 @@
-<div style="flex: 1;display:flex; flex-direction:column; align-items: center; justify-content:center;">
-<img src="storybook-jsx.svg" width=100 />
+<div style="width:100%;flex: 1;display:flex; flex-direction:column; align-items: center; justify-content:center;">
+<img src="storybook-jsx.png" width="100px" />
 <h1 style="width: 100%; text-align:center;">Storybook-addon-jsx</h1>
 </div>
 
