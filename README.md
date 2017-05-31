@@ -1,6 +1,6 @@
-<div style="width:100%;flex: 1;display:flex; flex-direction:column; align-items: center; justify-content:center;">
+<div style="text-align:center">
 <img src="storybook-jsx.png" width="100px" />
-<h1 style="width: 100%; text-align:center;">Storybook-addon-jsx</h1>
+<h1 style="text-align:center;">Storybook-addon-jsx</h1>
 </div>
 
 [![Build Status](https://travis-ci.org/Kilix/storybook-addon-jsx.svg?branch=master)](https://travis-ci.org/Kilix/storybook-addon-jsx)
