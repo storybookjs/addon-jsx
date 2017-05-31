@@ -1,7 +1,8 @@
-<div style="text-align:center">
-<img src="storybook-jsx.png" width="100px" />
-<h1 style="text-align:center;">Storybook-addon-jsx</h1>
-</div>
+<p align="center">
+  <img width=100 src="storybook-jsx.png">
+  <br>
+  <h1 style="text-align:center;">Storybook-addon-jsx</h1>
+</p>
 
 [![Build Status](https://travis-ci.org/Kilix/storybook-addon-jsx.svg?branch=master)](https://travis-ci.org/Kilix/storybook-addon-jsx)
 [![Total Download](https://img.shields.io/npm/dt/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
