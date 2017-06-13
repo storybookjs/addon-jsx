@@ -13,7 +13,11 @@
     "test:all": "jest src",
     "test:dev": "jest src --watch",
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
+  },
+  "engines": {
+    "npm": "5.0.1",
+    "node": "8.0.0"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.0.0",
