@@ -35,6 +35,6 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-copy-to-clipboard": "4.3.1",
-    "react-element-to-jsx-string": "^6.4.0"
+    "react-element-to-jsx-string": "10.1.0"
   }
 }
