@@ -15,9 +15,9 @@
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
     "prepare": "npm run build"
   },
-  "engines": {
-    "npm": "5.0.1",
-    "node": "8.0.0"
+  "peerDependencies": {
+    "react": ">=15.5.4",
+    "react-dom": ">=15.5.4"
   },
   "devDependencies": {
     "@storybook/addon-options": "^3.0.0",
@@ -32,12 +32,12 @@
     "npm-run-all": "^4.0.2",
     "prettier": "^1.2.2",
     "prop-types": "^15.5.8",
-    "react-dom": "^15.5.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-test-renderer": "^15.5.4",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "react": "^15.5.4",
     "react-copy-to-clipboard": "4.3.1",
     "react-element-to-jsx-string": "10.1.0"
   }
