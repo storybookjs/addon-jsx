@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-jsx",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "description": "Display the JSX of the story",
   "main": "lib/index.js",
   "license": "MIT",
@@ -8,8 +8,7 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
-    "format":
-      "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
+    "format": "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
     "test": "npm run test:all",
     "test:all": "jest src",
     "test:dev": "jest src --watch",
