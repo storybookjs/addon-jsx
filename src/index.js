@@ -29,12 +29,12 @@ const renderJsx = (code, options) => {
 
   if (typeof code === 'undefined') return console.warn('Too many skip or undefined component')
 
-  while (typeof code.type === 'function' && code.type.name === '')
-    code = code.type(code.props)
+  while (typeof code.type === 'function' && code.type.name === '') code = code.type(code.props)
 
-  const ooo = typeof options.displayName === 'string'
-    ? Object.assign({}, options, { displayName: () => options.displayName })
-    : options
+  const ooo =
+    typeof options.displayName === 'string'
+      ? Object.assign({}, options, { showFunctions: true, displayName: () => options.displayName })
+      : options
 
   return React.Children.map(code, c => reactElementToJSXString(c, ooo)).join('\n')
 }

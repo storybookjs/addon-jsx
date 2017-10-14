@@ -2,7 +2,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 const Component = () => <div />
-const Simple = props => <div><span>Hello</span>{props.children}</div>
+const Simple = props => (
+  <div>
+    <span>Hello</span>
+    {props.children}
+  </div>
+)
 
 export default () =>
   storiesOf('Children Array', module)

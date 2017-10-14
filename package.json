@@ -8,7 +8,8 @@
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js",
-    "format": "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
+    "format":
+      "prettier --no-semi --single-quote --trailing-comma all --tab-width 2 --bracket-spacing true --print-width 100 --write 'src/**/*.js'",
     "test": "npm run test:all",
     "test:all": "jest src",
     "test:dev": "jest src --watch",
@@ -16,13 +17,14 @@
     "prepare": "npm run build"
   },
   "peerDependencies": {
+    "babel-core": ">=6.0.0",
     "react": ">=15.5.4",
     "react-dom": ">=15.5.4"
   },
   "devDependencies": {
-    "@storybook/addon-options": "^3.0.0",
-    "@storybook/addon-storyshots": "^3.0.0",
-    "@storybook/react": "^3.0.0",
+    "@storybook/addon-options": "^3.2.12",
+    "@storybook/addon-storyshots": "^3.2.12",
+    "@storybook/react": "^3.2.12",
     "babel-cli": "^6.24.1",
     "babel-jest": "^21.2.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
@@ -30,7 +32,7 @@
     "babel-preset-react": "^6.24.1",
     "jest": "^21.2.1",
     "npm-run-all": "^4.0.2",
-    "prettier": "^1.2.2",
+    "prettier": "^1.7.4",
     "prop-types": "^15.5.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -39,6 +41,6 @@
   },
   "dependencies": {
     "react-copy-to-clipboard": "5.0.1",
-    "react-element-to-jsx-string": "12.0.0"
+    "react-element-to-jsx-string": "13.0.0"
   }
 }
