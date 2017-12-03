@@ -1,16 +1,25 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
 const Simple = ({ children }) => (
-  <div><span>Hello</span>{children ? () => <div>chidren</div> : null}</div>
-)
+  <div>
+    <span>Hello</span>
+    {children}
+  </div>
+);
 
 export default () =>
   storiesOf('With Props', module)
-    .addWithJSX('No children - No options', () => <Simple test="test" value={true} />)
-    .addWithJSX('No children - Rename', () => <Simple test="test" value={true} />, {
-      displayName: 'Renamed',
-    })
+    .addWithJSX('No children - No options', () => (
+      <Simple test="test" value={true} />
+    ))
+    .addWithJSX(
+      'No children - Rename',
+      () => <Simple test="test" value={true} />,
+      {
+        displayName: 'Renamed',
+      },
+    )
     .addWithJSX('With children - No options', () => (
       <Simple test="test" value={true}>
         <span>World</span>
@@ -37,4 +46,4 @@ export default () =>
         </Simple>
       ),
       { skip: 1, displayName: () => 'Renamed' },
-    )
+    );

@@ -1,9 +1,12 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 
 const Simple = ({ children }) => (
-  <div><span>Hello</span>{children ? () => <div>chidren</div> : null}</div>
-)
+  <div>
+    <span>Hello</span>
+    {children}
+  </div>
+);
 
 export default () =>
   storiesOf('Simple Test', module)
@@ -33,4 +36,4 @@ export default () =>
         </Simple>
       ),
       { skip: 1, displayName: 'Renamed' },
-    )
+    );
