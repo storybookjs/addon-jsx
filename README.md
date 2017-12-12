@@ -15,28 +15,28 @@ It can be usefull to see what props you set for example.
 
 ## Getting started
 
-If you use a react-dom version under 15.5.0 then use :
+### Installation:
+```sh
+yarn add --dev storybook-addon-jsx
+```
 
-` yarn add --dev storybook-addon-jsx`
-
-otherwise for react-dom >= 15.5.0 use and storybook v3:
-
-` yarn add --dev storybook-addon-jsx `
-
-Create a file called `addons.js` in your storybook config (default: `.storybook`) :
+### Add to storybook
+Append the following to file called `addons.js` in your storybook config (default: `.storybook`):
 
 ```js
 import 'storybook-addon-jsx/register';
 ```
+If the file doesn't exist yet, you'll have to create it.
 
-Then use it when you write stories :
+### Usage
+Import it into your stories file and then use it when you write stories:
 
 ```js
 import React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 
-setAddon(JSXAddon)
+setAddon(JSXAddon);
 
 const Test = ({ fontSize = '16px', fontFamily = 'Arial', align = 'left', color = 'red', children }) => (
   <div style={{ color, fontFamily, fontSize, textAlign: align }}>
@@ -57,7 +57,7 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 ));
 ```
 
-### OPTIONS
+## Options
 
 You can pass options as a third parameter.
 Options available:
