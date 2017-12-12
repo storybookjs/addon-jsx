@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CopyToClipboard from 'react-copy-to-clipboard'
 import Prism from './prism'
 
 import globalStyle from './css'
@@ -31,6 +32,7 @@ export default class JSX extends Component {
     state[kind][story] = jsx
     this.setState(state)
   }
+
   render() {
     if (
       typeof this.state.current !== 'undefined' &&
@@ -40,16 +42,48 @@ export default class JSX extends Component {
       const code = this.state[current.kind][current.story]
       const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : ''
 
-      return <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
+      return (
+        <div style={styles.container}>
+          <CopyToClipboard style={styles.btn} text={code ? code : ''}>
+            <button>Copy</button>
+          </CopyToClipboard>
+          <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
+        </div>
+      )
     } else {
-      return <pre style={styles.pre} />
+      return (
+        <div style={styles.container}>
+          <CopyToClipboard style={styles.btn} text="" disabled>
+            <button>Copy</button>
+          </CopyToClipboard>
+          <pre style={styles.pre} />
+        </div>
+      )
     }
   }
 }
 
 const styles = {
+  container: {
+    flex: 1,
+    padding: '10px',
+    position: 'relative',
+  },
+  btn: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    border: 'none',
+    borderTop: 'solid 1px rgba(0, 0, 0, 0.2)',
+    borderLeft: 'solid 1px rgba(0, 0, 0, 0.2)',
+    background: 'rgba(255, 255, 255, 0.5)',
+    padding: '5px 10px',
+    borderRadius: '4px 0 0 0',
+    color: 'rgba(0, 0, 0, 0.5)',
+    textTransform: 'uppercase',
+    outline: 'none',
+  },
   pre: {
     flex: 1,
-    padding: '5px 15px',
   },
 }

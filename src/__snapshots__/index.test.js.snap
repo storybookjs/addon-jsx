@@ -164,9 +164,25 @@ exports[`Storyshots Deep Test With children - Skip and rename 1`] = `
 </div>
 `;
 
-exports[`Storyshots Function as a children Deep function - No options 1`] = `<div />`;
+exports[`Storyshots Function as a children Deep function - No options 1`] = `
+<div>
+  <div>
+    <span>
+      World
+    </span>
+  </div>
+</div>
+`;
 
-exports[`Storyshots Function as a children Deep function - Skip 1`] = `<div />`;
+exports[`Storyshots Function as a children Deep function - Skip 1`] = `
+<div>
+  <div>
+    <span>
+      World
+    </span>
+  </div>
+</div>
+`;
 
 exports[`Storyshots Function as a children No options 1`] = `
 <div>
@@ -213,6 +229,9 @@ exports[`Storyshots Simple Test With children - No options 1`] = `
   <span>
     Hello
   </span>
+  <span>
+    World
+  </span>
 </div>
 `;
 
@@ -221,6 +240,9 @@ exports[`Storyshots Simple Test With children - Skip 1`] = `
   <span>
     Hello
   </span>
+  <span>
+    World
+  </span>
 </div>
 `;
 
@@ -228,6 +250,9 @@ exports[`Storyshots Simple Test With children - Skip and rename 1`] = `
 <div>
   <span>
     Hello
+  </span>
+  <span>
+    World
   </span>
 </div>
 `;
@@ -253,6 +278,9 @@ exports[`Storyshots With Props With children - No options 1`] = `
   <span>
     Hello
   </span>
+  <span>
+    World
+  </span>
 </div>
 `;
 
@@ -261,6 +289,12 @@ exports[`Storyshots With Props With children - Skip 1`] = `
   <span>
     Hello
   </span>
+  <div>
+    <span>
+      Hello
+    </span>
+    <div />
+  </div>
 </div>
 `;
 
@@ -269,5 +303,13 @@ exports[`Storyshots With Props With children - Skip and rename 1`] = `
   <span>
     Hello
   </span>
+  <div>
+    <span>
+      Hello
+    </span>
+    <span>
+      World
+    </span>
+  </div>
 </div>
 `;
