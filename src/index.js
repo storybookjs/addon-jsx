@@ -50,8 +50,15 @@ export default {
 
     const result = this.add(kind, context => {
       const story = storyFn(context)
+      let jsx = ''
 
-      const jsx = renderJsx(story, options)
+      if (story.template) {
+        jsx = story.template
+      }
+      else {
+        jsx = renderJsx(story, options)
+      }
+
       channel.emit('kadira/jsx/add_jsx', result.kind, kind, jsx)
 
       return story

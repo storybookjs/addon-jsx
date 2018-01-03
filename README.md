@@ -8,8 +8,8 @@
 [![Total Download](https://img.shields.io/npm/dt/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
 [![Current Version](https://img.shields.io/npm/v/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
 
-This Storybook addon show you the JSX of the story.
-It can be usefull to see what props you set for example.
+This Storybook addon shows you the JSX of the story.
+It can be useful to see what props you set, for example.
 
 ![Storybook Addon JSX Démo](screenshot.png)
 
@@ -55,6 +55,22 @@ storiesOf('test', module)
 storiesOf('test 2', module).addWithJSX('Paris', () => (
   <div color="#333">test</div>
 ));
+```
+
+You can also configure globally:
+```js
+import { configure, setAddon } from '@storybook/vue';
+
+setAddon(JSXAddon);
+
+configure(loadStories, module);
+```
+
+```js
+import { storiesOf } from '@storybook/vue';
+
+storiesOf('Vue', module)
+  .addWithJSX('template property', () => ({ template: `<div></div>` }));
 ```
 
 ## Options
