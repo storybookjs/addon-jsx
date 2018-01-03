@@ -54,8 +54,7 @@ export default {
 
       if (story.template) {
         jsx = story.template
-      }
-      else {
+      } else {
         jsx = renderJsx(story, options)
       }
 
