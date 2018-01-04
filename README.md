@@ -78,8 +78,10 @@ storiesOf('Vue', module)
 You can pass options as a third parameter.
 Options available:
 
+#### JSX
+
 - `skip` (default: 0) : Skip element in your component to display
-- Options from [react-element-to-jsx-strin](https://github.com/algolia/react-element-to-jsx-string)
+- Options from [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string)
 
 ```js
 // Option displayName
@@ -105,4 +107,28 @@ storiesOf('test 2', module).addWithJSX(
 );
 // Output
 // <Test>Hello</Test>
+```
+
+#### Not JSX
+
+If a Vue story defines its view with a template string then it will be displayed
+
+- `enableBeautify` (default: true) : Beautify the template string
+- HTML options from [js-beautify](https://github.com/beautify-web/js-beautify#css--html)
+
+```javascript
+//Option indent_size
+storiesOf('test 2', module).addWithJSX(
+  'Paris',
+  () => ({
+    template: `<Test>
+Hello
+                          </Test>`
+  }),
+  { indent_size: 2 },
+);
+// Output
+// <Test>
+//   Hello
+// </Test>
 ```

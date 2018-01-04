@@ -17,6 +17,7 @@
     "netlify": "build-storybook -c ./example/.storybook"
   },
   "dependencies": {
+    "js-beautify": "^1.7.5",
     "react-copy-to-clipboard": "^5.0.1",
     "react-element-to-jsx-string": "^13.1.0"
   },
