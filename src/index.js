@@ -1,6 +1,7 @@
 import React from 'react'
 import addons from '@storybook/addons'
 import reactElementToJSXString from 'react-element-to-jsx-string'
+import { html as beautifyHTML } from 'js-beautify';
 
 const renderJsx = (code, options) => {
   for (let i = 0; i < options.skip; i++) {
@@ -44,6 +45,7 @@ export default {
     const defaultOpts = {
       skip: 0,
       showFunctions: true,
+      enableBeautify: true
     }
     const options = Object.assign({}, defaultOpts, opts)
     const channel = addons.getChannel()
@@ -53,7 +55,11 @@ export default {
       let jsx = ''
 
       if (story.template) {
-        jsx = story.template
+        if (options.enableBeautify) {
+          jsx = beautifyHTML(story.template, options)
+        } else {
+          jsx = story.template
+        }
       } else {
         jsx = renderJsx(story, options)
       }
