@@ -60,6 +60,7 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 You can also configure globally:
 ```js
 import { configure, setAddon } from '@storybook/vue';
+import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
