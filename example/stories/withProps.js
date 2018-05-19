@@ -46,4 +46,27 @@ export default () =>
         </Simple>
       ),
       { skip: 1, displayName: () => 'Renamed' },
+    )
+    .addWithJSX(
+      'With dangerouslySetInnerHTML - onBeforeRender',
+      () => (
+        <Simple>
+          <Simple test="test" value={true}>
+            <div dangerouslySetInnerHTML={{ __html: '<div>Inner HTML<ul><li>1</li><li>2</li></ul></div>',}} />
+          </Simple>
+        </Simple>
+      ),
+      {
+        skip: 1,
+        onBeforeRender: domString => {
+          if (domString.search('dangerouslySetInnerHTML') < 0) {
+            return ''
+          }
+          try {
+            domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
+            domString = /(')([^']*)/.exec(domString)[2]
+          } catch (err) {}
+          return domString
+        },
+      },
     );
