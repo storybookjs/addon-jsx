@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-jsx",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "Display the JSX of the story",
   "license": "MIT",
   "main": "lib/index.js",
