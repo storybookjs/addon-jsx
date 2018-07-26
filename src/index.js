@@ -1,7 +1,14 @@
 import React from 'react'
 import addons from '@storybook/addons'
 import reactElementToJSXString from 'react-element-to-jsx-string'
-import { html as beautifyHTML } from 'js-beautify';
+import { html as beautifyHTML } from 'js-beautify'
+
+const applyBeforeRender = (domString, options) => {
+  if (typeof options.onBeforeRender !== 'function') {
+    return domString
+  }
+  return options.onBeforeRender(domString)
+}
 
 const renderJsx = (code, options) => {
   for (let i = 0; i < options.skip; i++) {
@@ -37,7 +44,9 @@ const renderJsx = (code, options) => {
       ? Object.assign({}, options, { showFunctions: true, displayName: () => options.displayName })
       : options
 
-  return React.Children.map(code, c => reactElementToJSXString(c, ooo)).join('\n')
+  return React.Children.map(code, c =>
+    applyBeforeRender(reactElementToJSXString(c, ooo), options),
+  ).join('\n')
 }
 
 export default {
