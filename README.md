@@ -6,7 +6,7 @@
 
 [![Build Status](https://travis-ci.org/Kilix/storybook-addon-jsx.svg?branch=master)](https://travis-ci.org/Kilix/storybook-addon-jsx)
 [![Total Download](https://img.shields.io/npm/dt/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
-[![Current Version](https://img.shields.io/npm/v/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx)
+[![Current Version](https://img.shields.io/npm/v/storybook-addon-jsx.svg)](https://www.npmjs.com/package/storybook-addon-jsx) [![Greenkeeper badge](https://badges.greenkeeper.io/storybooks/addon-jsx.svg)](https://greenkeeper.io/)
 
 This Storybook addon shows you the JSX of the story.
 It can be useful to see what props you set, for example.
