@@ -313,3 +313,23 @@ exports[`Storyshots With Props With children - Skip and rename 1`] = `
   </div>
 </div>
 `;
+
+exports[`Storyshots With Props With dangerouslySetInnerHTML - onBeforeRender 1`] = `
+<div>
+  <span>
+    Hello
+  </span>
+  <div>
+    <span>
+      Hello
+    </span>
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<div>Inner HTML<ul><li>1</li><li>2</li></ul></div>",
+        }
+      }
+    />
+  </div>
+</div>
+`;

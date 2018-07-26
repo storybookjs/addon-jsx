@@ -110,6 +110,34 @@ storiesOf('test 2', module).addWithJSX(
 // <Test>Hello</Test>
 ```
 
+- `onBeforeRender(domString: string) => string` (default: undefined) : function that receives the dom as a string before render.
+
+```js
+/Option onBeforeRender
+storiesOf('test 2', module).addWithJSX(
+  'Paris',
+  () => (
+    <div color="#333">
+      <div dangerouslySetInnerHTML={{ __html: '<div>Inner HTML</div>',}} />
+    </div>
+  ),
+  {
+    onBeforeRender: domString => {
+      if (domString.search('dangerouslySetInnerHTML') < 0) {
+        return ''
+      }
+      try {
+        domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
+        domString = /(')([^']*)/.exec(domString)[2]
+      } catch (err) {}
+      return domString
+    },
+  },
+);
+// Output
+// <div>Inner HTML</div>
+```
+
 #### Not JSX
 
 If a Vue story defines its view with a template string then it will be displayed
