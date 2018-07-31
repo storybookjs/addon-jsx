@@ -15,7 +15,7 @@ addons.register('kadira/jsx', api => {
   const ob = Observable(addons.getChannel(), api)
 
   addons.addPanel('kadira/jsx/panel', {
-    title: <Title />,
+    title: Title,
     render: () => <JSX ob={ob} />,
   })
 })
