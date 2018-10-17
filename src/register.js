@@ -16,6 +16,6 @@ addons.register('kadira/jsx', api => {
 
   addons.addPanel('kadira/jsx/panel', {
     title: Title,
-    render: () => <JSX ob={ob} />,
+    render: ({active}) => <JSX active={active} ob={ob} />,
   })
 })
