@@ -35,6 +35,7 @@ export default class JSX extends Component {
 
   render() {
     if (
+      this.props.active &&
       typeof this.state.current !== 'undefined' &&
       typeof this.state[this.state.current.kind] !== 'undefined'
     ) {
