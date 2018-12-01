@@ -34,7 +34,7 @@ export default class JSX extends Component {
   }
 
   render() {
-    if (!this.props.active) return null;
+    if (!this.props.active) return null
     
     if (
       typeof this.state.current !== 'undefined' &&
