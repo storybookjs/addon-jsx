@@ -6,6 +6,10 @@ import { html as beautifyHTML } from 'js-beautify';
 
 import { EVENTS } from './constants';
 
+type VueComponent = {
+  template?: string;
+};
+
 interface JSXOptions extends HTMLBeautifyOptions {
   skip?: number;
   showFunctions?: boolean;
@@ -73,7 +77,7 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
 
 interface JSXParameters {
   id: string;
-  jsx?: JSXOptions;
+  parameters: { jsx?: JSXOptions };
 }
 
 const jsxDecorator = function(
@@ -88,16 +92,13 @@ const jsxDecorator = function(
   };
   const options = {
     ...defaultOpts,
-    ...(parameters.jsx || {})
+    ...((parameters.parameters && parameters.parameters.jsx) || {})
   } as Required<JSXOptions>;
   const channel = addons.getChannel();
 
-  const story: ReturnType<typeof storyFn> & {
-    template?: string;
-  } = storyFn();
+  const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
   let jsx = '';
 
-  // Template doesn't exits on react component?
   if (story.template) {
     if (options.enableBeautify) {
       jsx = beautifyHTML(story.template, options);

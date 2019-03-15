@@ -37,10 +37,8 @@ Import it into your stories file and then use it when you write stories:
 
 ```js
 import React from 'react';
-import { setAddon, storiesOf } from '@storybook/react';
-import JSXAddon from 'storybook-addon-jsx';
-
-setAddon(JSXAddon);
+import { storiesOf } from '@storybook/react';
+import jsx from 'storybook-addon-jsx';
 
 const Test = ({
   fontSize = '16px',
@@ -55,12 +53,13 @@ const Test = ({
 );
 
 storiesOf('test', module)
-  .addWithJSX('Paris', () => (
+  .addDecorator(jsx)
+  .add('Paris', () => (
     <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
       Hello
     </Test>
   ))
-  .addWithJSX('Orleans', () => <Test color="#236544">Hello</Test>);
+  .add('Orleans', () => <Test color="#236544">Hello</Test>);
 
 storiesOf('test 2', module).addWithJSX('Paris', () => (
   <div color="#333">test</div>
@@ -70,10 +69,10 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 You can also configure globally:
 
 ```js
-import { configure, setAddon } from '@storybook/vue';
+import { configure, addDecorator } from '@storybook/vue';
 import JSXAddon from 'storybook-addon-jsx';
 
-setAddon(JSXAddon);
+addDecorator(JSXAddon);
 
 configure(loadStories, module);
 ```
@@ -81,7 +80,7 @@ configure(loadStories, module);
 ```js
 import { storiesOf } from '@storybook/vue';
 
-storiesOf('Vue', module).addWithJSX('template property', () => ({
+storiesOf('Vue', module).add('template property', () => ({
   template: `<div></div>`
 }));
 ```
