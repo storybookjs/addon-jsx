@@ -1,6 +1,6 @@
 import React from 'react';
 import { setAddon } from '@storybook/react';
-import { JSXAddon } from '../../lib/index';
+import JSXAddon from '../../lib/index';
 
 import SimpleStories from './simple';
 import DeepStories from './deep';

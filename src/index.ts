@@ -80,7 +80,7 @@ interface JSXParameters {
   parameters: { jsx?: JSXOptions };
 }
 
-const jsxDecorator = function(
+export const jsxDecorator = function(
   storyFn: RenderFunction,
   parameters: JSXParameters
 ) {
@@ -117,11 +117,9 @@ const jsxDecorator = function(
   return story;
 };
 
-export const JSXAddon = {
+export default {
   addWithJSX(this: Story, kind: string, storyFn: RenderFunction) {
     // @ts-ignore
     return this.add(kind, context => jsxDecorator(storyFn, context));
   }
 };
-
-export default jsxDecorator;

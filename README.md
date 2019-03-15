@@ -46,7 +46,7 @@ Import it into your stories file and then use it when you write stories:
 ```js
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import jsx from 'storybook-addon-jsx';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
 const Test = ({
   fontSize = '16px',
@@ -78,7 +78,7 @@ You can also configure globally:
 
 ```js
 import { configure, addDecorator } from '@storybook/vue';
-import JSXAddon from 'storybook-addon-jsx';
+import { jsxDecorator } from 'storybook-addon-jsx';
 
 addDecorator(JSXAddon);
 
@@ -100,7 +100,7 @@ Import it into your stories file and then use it when you write stories:
 ```js
 import React from 'react';
 import { setAddon, storiesOf } from '@storybook/react';
-import { JSXAddon } from 'storybook-addon-jsx';
+import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
@@ -133,7 +133,7 @@ You can also configure globally:
 
 ```js
 import { configure, setAddon } from '@storybook/react';
-import { JSXAddon } from 'storybook-addon-jsx';
+import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
