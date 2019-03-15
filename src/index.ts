@@ -70,55 +70,49 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
 };
 
 interface JSXParameters {
+  id: string;
   jsx?: JSXOptions;
 }
 
-export default {
-  addWithJSX(
-    this: Story,
-    kind: string,
-    storyFn: RenderFunction,
-    parameters: JSXParameters = {}
-  ) {
-    const defaultOpts = {
-      skip: 0,
-      showFunctions: true,
-      enableBeautify: true
-    };
-    const options = {
-      ...defaultOpts,
-      ...(parameters.jsx || {})
-    } as Required<JSXOptions>;
-    const channel = addons.getChannel();
+const jsxDecorator = function(
+  this: Story,
+  storyFn: RenderFunction,
+  parameters: JSXParameters
+) {
+  const defaultOpts = {
+    skip: 0,
+    showFunctions: true,
+    enableBeautify: true
+  };
+  const options = {
+    ...defaultOpts,
+    ...(parameters.jsx || {})
+  } as Required<JSXOptions>;
+  const channel = addons.getChannel();
 
-    // @ts-ignore
-    const result = this.add(kind, context => {
-      console.log({ context });
-      const story: ReturnType<typeof storyFn> & {
-        template?: string;
-      } = storyFn();
-      let jsx = '';
+  const story: ReturnType<typeof storyFn> & {
+    template?: string;
+  } = storyFn();
+  let jsx = '';
 
-      // Template doesn't exits on react component?
-      if (story.template) {
-        if (options.enableBeautify) {
-          jsx = beautifyHTML(story.template, options);
-        } else {
-          jsx = story.template;
-        }
-      } else {
-        const rendered = renderJsx(story, options);
+  // Template doesn't exits on react component?
+  if (story.template) {
+    if (options.enableBeautify) {
+      jsx = beautifyHTML(story.template, options);
+    } else {
+      jsx = story.template;
+    }
+  } else {
+    const rendered = renderJsx(story, options);
 
-        if (rendered) {
-          jsx = rendered;
-        }
-      }
-
-      channel.emit('kadira/jsx/add_jsx', context.id, jsx);
-
-      return story;
-    });
-
-    return result;
+    if (rendered) {
+      jsx = rendered;
+    }
   }
+
+  channel.emit('kadira/jsx/add_jsx', parameters.id, jsx);
+
+  return story;
 };
+
+export default jsxDecorator;
