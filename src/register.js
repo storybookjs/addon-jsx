@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import addons from '@storybook/addons';
 
-import Title from './title';
 import JSX from './jsx';
 
 const Observable = (channel, api) => listener => {
