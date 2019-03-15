@@ -33,6 +33,14 @@ If the file doesn't exist yet, you'll have to create it.
 
 ### Usage
 
+Both have caveats and you should pick the best for your use case.
+There are two ways to use `addon-jsx`.
+
+1. Decorator - Order matters. Will include JSX for decorators added after the jsx decorator. Use `skip` option to omit these
+2. `addWithJSX` - You must change every `.add` to `.addWithJSX`. Extra decorators will not effect these.
+
+#### Decorator
+
 Import it into your stories file and then use it when you write stories:
 
 ```js
@@ -83,6 +91,53 @@ import { storiesOf } from '@storybook/vue';
 storiesOf('Vue', module).add('template property', () => ({
   template: `<div></div>`
 }));
+```
+
+#### addWithJSX
+
+Import it into your stories file and then use it when you write stories:
+
+```js
+import React from 'react';
+import { setAddon, storiesOf } from '@storybook/react';
+import { JSXAddon } from 'storybook-addon-jsx';
+
+setAddon(JSXAddon);
+
+const Test = ({
+  fontSize = '16px',
+  fontFamily = 'Arial',
+  align = 'left',
+  color = 'red',
+  children
+}) => (
+  <div style={{ color, fontFamily, fontSize, textAlign: align }}>
+    {children}
+  </div>
+);
+
+storiesOf('test', module)
+  .addWithJSX('Paris', () => (
+    <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
+      Hello
+    </Test>
+  ))
+  .addWithJSX('Orleans', () => <Test color="#236544">Hello</Test>);
+
+storiesOf('test 2', module).addWithJSX('Paris', () => (
+  <div color="#333">test</div>
+));
+```
+
+You can also configure globally:
+
+```js
+import { configure, setAddon } from '@storybook/react';
+import { JSXAddon } from 'storybook-addon-jsx';
+
+setAddon(JSXAddon);
+
+configure(loadStories, module);
 ```
 
 ## Options

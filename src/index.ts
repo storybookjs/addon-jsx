@@ -84,7 +84,6 @@ const jsxDecorator = function(
   storyFn: RenderFunction,
   parameters: JSXParameters
 ) {
-  console.log('here');
   const defaultOpts = {
     skip: 0,
     showFunctions: true,
@@ -118,8 +117,11 @@ const jsxDecorator = function(
   return story;
 };
 
-export const jsxAddon = {
-  addWithJSX: (kind, storyFn, parameters) => jsxDecorator(storyFn, parameters)
+export const JSXAddon = {
+  addWithJSX(this: Story, kind: string, storyFn: RenderFunction) {
+    // @ts-ignore
+    return this.add(kind, context => jsxDecorator(storyFn, context));
+  }
 };
 
 export default jsxDecorator;
