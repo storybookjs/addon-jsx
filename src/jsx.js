@@ -30,12 +30,15 @@ export default class JSX extends Component {
     if (typeof state[kind] === 'undefined') {
       state[kind] = {};
     }
+
     state[kind][story] = jsx;
     this.setState(state);
   }
 
   render() {
-    if (!this.props.active) return null;
+    if (!this.props.active) {
+      return null;
+    }
 
     if (
       typeof this.state.current !== 'undefined' &&
