@@ -16,19 +16,23 @@ It can be useful to see what props you set, for example.
 ## Getting started
 
 ### Installation:
+
 ```sh
 yarn add --dev storybook-addon-jsx
 ```
 
 ### Add to storybook
+
 Append the following to file called `addons.js` in your storybook config (default: `.storybook`):
 
 ```js
 import 'storybook-addon-jsx/register';
 ```
+
 If the file doesn't exist yet, you'll have to create it.
 
 ### Usage
+
 Import it into your stories file and then use it when you write stories:
 
 ```js
@@ -38,7 +42,13 @@ import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
-const Test = ({ fontSize = '16px', fontFamily = 'Arial', align = 'left', color = 'red', children }) => (
+const Test = ({
+  fontSize = '16px',
+  fontFamily = 'Arial',
+  align = 'left',
+  color = 'red',
+  children
+}) => (
   <div style={{ color, fontFamily, fontSize, textAlign: align }}>
     {children}
   </div>
@@ -58,6 +68,7 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 ```
 
 You can also configure globally:
+
 ```js
 import { configure, setAddon } from '@storybook/vue';
 import JSXAddon from 'storybook-addon-jsx';
@@ -70,8 +81,9 @@ configure(loadStories, module);
 ```js
 import { storiesOf } from '@storybook/vue';
 
-storiesOf('Vue', module)
-  .addWithJSX('template property', () => ({ template: `<div></div>` }));
+storiesOf('Vue', module).addWithJSX('template property', () => ({
+  template: `<div></div>`
+}));
 ```
 
 ## Options
@@ -89,7 +101,7 @@ Options available:
 storiesOf('test 2', module).addWithJSX(
   'Paris',
   () => <TestContainer>Hello there</TestContainer>,
-  { displayName: 'Test' }, // can be a function { displayName: element => 'Test' }
+  { displayName: 'Test' } // can be a function { displayName: element => 'Test' }
 );
 // Output
 // <Test>Hello there</Test>
@@ -104,7 +116,7 @@ storiesOf('test 2', module).addWithJSX(
       <Test>Hello</Test>
     </div>
   ),
-  { skip: 1 },
+  { skip: 1 }
 );
 // Output
 // <Test>Hello</Test>
@@ -154,7 +166,7 @@ storiesOf('test 2', module).addWithJSX(
 Hello
                           </Test>`
   }),
-  { indent_size: 2 },
+  { indent_size: 2 }
 );
 // Output
 // <Test>

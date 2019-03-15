@@ -1,21 +1,19 @@
-import React, { Component } from 'react'
-import addons from '@storybook/addons'
+import React, { Component } from 'react';
+import addons from '@storybook/addons';
 
-import Title from './title'
-import JSX from './jsx'
+import Title from './title';
+import JSX from './jsx';
 
-const Observable = (channel, api) => {
-  return listener => {
-    channel.on('kadira/jsx/add_jsx', listener.next('jsx'))
-    api.onStory(listener.next('current'))
-  }
-}
+const Observable = (channel, api) => listener => {
+  channel.on('kadira/jsx/add_jsx', listener.next('jsx'));
+  api.onStory(listener.next('current'));
+};
 
 addons.register('kadira/jsx', api => {
-  const ob = Observable(addons.getChannel(), api)
+  const ob = Observable(addons.getChannel(), api);
 
   addons.addPanel('kadira/jsx/panel', {
     title: Title,
-    render: ({active}) => <JSX active={active} ob={ob} />,
-  })
-})
+    render: ({ active }) => <JSX active={active} ob={ob} />
+  });
+});

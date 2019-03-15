@@ -130,4 +130,4 @@ pre[class*="language-"] {
 .token.entity {
 	cursor: help;
 }
-`
+`;

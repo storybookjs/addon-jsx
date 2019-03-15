@@ -1,5 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const Title = () => <span>JSX</span>
+const Title = () => <span>JSX</span>;
 
-export default Title
+export default Title;

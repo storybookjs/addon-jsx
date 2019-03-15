@@ -1,48 +1,49 @@
-import React, { Component } from 'react'
-import CopyToClipboard from 'react-copy-to-clipboard'
-import Prism from './prism'
+import React, { Component } from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import Prism from './prism';
 
-import globalStyle from './css'
+import globalStyle from './css';
 
-const prismStyle = document.createElement('style')
-prismStyle.innerHTML = globalStyle
-document.body.appendChild(prismStyle)
+const prismStyle = document.createElement('style');
+prismStyle.innerHTML = globalStyle;
+document.body.appendChild(prismStyle);
 
 export default class JSX extends Component {
   constructor(props, ...args) {
-    super(props, ...args)
+    super(props, ...args);
     props.ob({
-      next: type => (type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)),
-    })
+      next: type =>
+        type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)
+    });
 
-    this.state = {}
-    this.stopListeningOnStory = () => this.setState({})
+    this.state = {};
+    this.stopListeningOnStory = () => this.setState({});
   }
 
   setCurrent(kind, story) {
-    this.setState({ current: { kind, story } })
+    this.setState({ current: { kind, story } });
   }
 
   onAddJSX(kind, story, jsx) {
-    const state = this.state
+    const state = this.state;
 
     if (typeof state[kind] === 'undefined') {
-      state[kind] = {}
+      state[kind] = {};
     }
-    state[kind][story] = jsx
-    this.setState(state)
+    state[kind][story] = jsx;
+    this.setState(state);
   }
 
   render() {
-    if (!this.props.active) return null
-    
+    if (!this.props.active) return null;
+
     if (
       typeof this.state.current !== 'undefined' &&
       typeof this.state[this.state.current.kind] !== 'undefined'
     ) {
-      const current = this.state.current
-      const code = this.state[current.kind][current.story]
-      const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : ''
+      const current = this.state.current;
+      const code = this.state[current.kind][current.story];
+      const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : '';
 
       return (
         <div style={styles.container}>
@@ -51,7 +52,7 @@ export default class JSX extends Component {
           </CopyToClipboard>
           <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
         </div>
-      )
+      );
     } else {
       return (
         <div style={styles.container}>
@@ -60,7 +61,7 @@ export default class JSX extends Component {
           </CopyToClipboard>
           <pre style={styles.pre} />
         </div>
-      )
+      );
     }
   }
 }
@@ -69,7 +70,7 @@ const styles = {
   container: {
     flex: 1,
     padding: '10px',
-    position: 'relative',
+    position: 'relative'
   },
   btn: {
     position: 'absolute',
@@ -83,9 +84,9 @@ const styles = {
     borderRadius: '4px 0 0 0',
     color: 'rgba(0, 0, 0, 0.5)',
     textTransform: 'uppercase',
-    outline: 'none',
+    outline: 'none'
   },
   pre: {
-    flex: 1,
-  },
-}
+    flex: 1
+  }
+};
