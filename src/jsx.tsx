@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { CSSProperties } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Prism from './prism';
+import { Listener } from './register';
 
-const styles = {
+const styles: Record<string, CSSProperties> = {
   container: {
     flex: 1,
     padding: '10px',
@@ -28,11 +29,17 @@ const styles = {
   }
 };
 
-const JSX = props => {
-  const [current, setCurrent] = React.useState(undefined);
-  const [jsx, setJsx] = React.useState({});
+interface JSXProps {
+  active: boolean;
+  ob(listener: Listener): void;
+}
 
-  const addJsx = (id, newJsx) => setJsx({ ...jsx, [id]: newJsx });
+const JSX: React.FunctionComponent<JSXProps> = props => {
+  const [current, setCurrent] = React.useState<string | undefined>(undefined);
+  const [jsx, setJsx] = React.useState<Record<string, string>>({});
+
+  const addJsx = (id: string, newJsx: string) =>
+    setJsx({ ...jsx, [id]: newJsx });
 
   React.useEffect(() => {
     props.ob({
@@ -54,8 +61,10 @@ const JSX = props => {
 
   return (
     <div style={styles.container}>
-      <CopyToClipboard style={styles.btn} text={code} disabled={!code}>
-        <button>Copy</button>
+      <CopyToClipboard text={code}>
+        <button style={styles.btn} disabled={!code}>
+          Copy
+        </button>
       </CopyToClipboard>
       <pre
         style={styles.pre}
