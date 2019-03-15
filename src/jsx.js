@@ -8,63 +8,6 @@ const prismStyle = document.createElement('style');
 prismStyle.innerHTML = globalStyle;
 document.body.appendChild(prismStyle);
 
-export default class JSX extends Component {
-  constructor(props) {
-    super(props);
-
-    props.ob({
-      next: type =>
-        type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)
-    });
-
-    this.state = {};
-    this.stopListeningOnStory = () => this.setState({});
-  }
-
-  setCurrent(id) {
-    this.setState({ current: id });
-  }
-
-  onAddJSX(id, jsx) {
-    const state = this.state;
-    state[id] = jsx;
-    this.setState(state);
-  }
-
-  render() {
-    if (!this.props.active) {
-      return null;
-    }
-
-    if (
-      typeof this.state.current !== 'undefined' &&
-      typeof this.state[this.state.current] !== 'undefined'
-    ) {
-      const current = this.state.current;
-      const code = this.state[current];
-      const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : '';
-
-      return (
-        <div style={styles.container}>
-          <CopyToClipboard style={styles.btn} text={code ? code : ''}>
-            <button>Copy</button>
-          </CopyToClipboard>
-          <pre style={styles.pre} dangerouslySetInnerHTML={{ __html: jsx }} />
-        </div>
-      );
-    } else {
-      return (
-        <div style={styles.container}>
-          <CopyToClipboard style={styles.btn} text="" disabled>
-            <button>Copy</button>
-          </CopyToClipboard>
-          <pre style={styles.pre} />
-        </div>
-      );
-    }
-  }
-}
-
 const styles = {
   container: {
     flex: 1,
@@ -83,9 +26,49 @@ const styles = {
     borderRadius: '4px 0 0 0',
     color: 'rgba(0, 0, 0, 0.5)',
     textTransform: 'uppercase',
-    outline: 'none'
+    outline: 'none',
+    cursor: 'pointer'
   },
   pre: {
     flex: 1
   }
 };
+
+const JSX = props => {
+  const [current, setCurrent] = React.useState(undefined);
+  const [jsx, setJsx] = React.useState({});
+
+  const addJsx = (id, newJsx) => setJsx({ ...jsx, [id]: newJsx });
+
+  React.useEffect(() => {
+    props.ob({
+      next: type => (type === 'jsx' ? addJsx : setCurrent)
+    });
+  }, []);
+
+  if (!props.active) {
+    return null;
+  }
+
+  let code = '';
+  let highlighted = '';
+
+  if (current && jsx[current]) {
+    code = jsx[current];
+    highlighted = code ? Prism.highlight(code, Prism.languages.jsx) : '';
+  }
+
+  return (
+    <div style={styles.container}>
+      <CopyToClipboard style={styles.btn} text={code} disabled={!code}>
+        <button>Copy</button>
+      </CopyToClipboard>
+      <pre
+        style={styles.pre}
+        dangerouslySetInnerHTML={{ __html: highlighted }}
+      />
+    </div>
+  );
+};
+
+export default JSX;

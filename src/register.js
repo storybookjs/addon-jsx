@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import addons from '@storybook/addons';
+import { addons } from '@storybook/addons';
 import { STORY_RENDERED } from '@storybook/core-events';
 
 import JSX from './jsx';
