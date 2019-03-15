@@ -81,10 +81,10 @@ interface JSXParameters {
 }
 
 const jsxDecorator = function(
-  this: Story,
   storyFn: RenderFunction,
   parameters: JSXParameters
 ) {
+  console.log('here');
   const defaultOpts = {
     skip: 0,
     showFunctions: true,
@@ -116,6 +116,10 @@ const jsxDecorator = function(
   channel.emit(EVENTS.ADD_JSX, parameters.id, jsx);
 
   return story;
+};
+
+export const jsxAddon = {
+  addWithJSX: (kind, storyFn, parameters) => jsxDecorator(storyFn, parameters)
 };
 
 export default jsxDecorator;
