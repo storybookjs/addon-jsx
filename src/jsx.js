@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Prism from './prism';
 
-import globalStyle from './css';
-
-const prismStyle = document.createElement('style');
-prismStyle.innerHTML = globalStyle;
-document.body.appendChild(prismStyle);
-
 const styles = {
   container: {
     flex: 1,

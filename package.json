@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "js-beautify": "^1.8.8",
+    "prismjs": "^1.15.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-element-to-jsx-string": "^14.0.2"
   },
