@@ -145,7 +145,7 @@ configure(loadStories, module);
 You can pass options as a third parameter.
 Options available:
 
-#### JSX
+### JSX
 
 - `skip` (default: 0) : Skip element in your component to display
 - Options from [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string)
@@ -155,7 +155,7 @@ Options available:
 storiesOf('test 2', module).addWithJSX(
   'Paris',
   () => <TestContainer>Hello there</TestContainer>,
-  { displayName: 'Test' } // can be a function { displayName: element => 'Test' }
+  { jsx: { displayName: 'Test' } } // can be a function { displayName: element => 'Test' }
 );
 // Output
 // <Test>Hello there</Test>
@@ -170,7 +170,7 @@ storiesOf('test 2', module).addWithJSX(
       <Test>Hello</Test>
     </div>
   ),
-  { skip: 1 }
+  { jsx: { skip: 1 } }
 );
 // Output
 // <Test>Hello</Test>
@@ -188,23 +188,25 @@ storiesOf('test 2', module).addWithJSX(
     </div>
   ),
   {
-    onBeforeRender: domString => {
-      if (domString.search('dangerouslySetInnerHTML') < 0) {
-        return ''
-      }
-      try {
-        domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
-        domString = /(')([^']*)/.exec(domString)[2]
-      } catch (err) {}
-      return domString
-    },
+    jsx: {
+      onBeforeRender: domString => {
+        if (domString.search('dangerouslySetInnerHTML') < 0) {
+          return ''
+        }
+        try {
+          domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
+          domString = /(')([^']*)/.exec(domString)[2]
+        } catch (err) {}
+        return domString
+      },
+    }
   },
 );
 // Output
 // <div>Inner HTML</div>
 ```
 
-#### Not JSX
+### Not JSX
 
 If a Vue story defines its view with a template string then it will be displayed
 
@@ -220,10 +222,24 @@ storiesOf('test 2', module).addWithJSX(
 Hello
                           </Test>`
   }),
-  { indent_size: 2 }
+  { jsx: { indent_size: 2 } }
 );
 // Output
 // <Test>
 //   Hello
 // </Test>
+```
+
+## Global Options
+
+To configure global options for this plugin, add the following to your `config.js`.
+
+```js
+import { addParameters } from '@storybook/react';
+
+addParameters({
+  jsx: {
+    // your options
+  }
+});
 ```
