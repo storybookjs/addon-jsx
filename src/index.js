@@ -79,7 +79,7 @@ export default {
         jsx = renderJsx(story, options);
       }
 
-      channel.emit('kadira/jsx/add_jsx', result.kind, kind, jsx);
+      channel.emit('kadira/jsx/add_jsx', context.id, jsx);
 
       return story;
     });

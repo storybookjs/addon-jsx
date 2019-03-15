@@ -9,8 +9,9 @@ prismStyle.innerHTML = globalStyle;
 document.body.appendChild(prismStyle);
 
 export default class JSX extends Component {
-  constructor(props, ...args) {
-    super(props, ...args);
+  constructor(props) {
+    super(props);
+
     props.ob({
       next: type =>
         type === 'jsx' ? this.onAddJSX.bind(this) : this.setCurrent.bind(this)
@@ -20,18 +21,13 @@ export default class JSX extends Component {
     this.stopListeningOnStory = () => this.setState({});
   }
 
-  setCurrent(kind, story) {
-    this.setState({ current: { kind, story } });
+  setCurrent(id) {
+    this.setState({ current: id });
   }
 
-  onAddJSX(kind, story, jsx) {
+  onAddJSX(id, jsx) {
     const state = this.state;
-
-    if (typeof state[kind] === 'undefined') {
-      state[kind] = {};
-    }
-
-    state[kind][story] = jsx;
+    state[id] = jsx;
     this.setState(state);
   }
 
@@ -42,10 +38,10 @@ export default class JSX extends Component {
 
     if (
       typeof this.state.current !== 'undefined' &&
-      typeof this.state[this.state.current.kind] !== 'undefined'
+      typeof this.state[this.state.current] !== 'undefined'
     ) {
       const current = this.state.current;
-      const code = this.state[current.kind][current.story];
+      const code = this.state[current];
       const jsx = code ? Prism.highlight(code, Prism.languages.jsx) : '';
 
       return (
