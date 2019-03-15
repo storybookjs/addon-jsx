@@ -4,6 +4,8 @@ import { RenderFunction, Story } from '@storybook/react';
 import reactElementToJSXString, { Options } from 'react-element-to-jsx-string';
 import { html as beautifyHTML } from 'js-beautify';
 
+import { EVENTS } from './constants';
+
 interface JSXOptions extends HTMLBeautifyOptions {
   skip?: number;
   showFunctions?: boolean;
@@ -110,7 +112,7 @@ const jsxDecorator = function(
     }
   }
 
-  channel.emit('kadira/jsx/add_jsx', parameters.id, jsx);
+  channel.emit(EVENTS.ADD_JSX, parameters.id, jsx);
 
   return story;
 };
