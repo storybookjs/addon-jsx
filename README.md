@@ -16,19 +16,85 @@ It can be useful to see what props you set, for example.
 ## Getting started
 
 ### Installation:
+
 ```sh
 yarn add --dev storybook-addon-jsx
 ```
 
 ### Add to storybook
+
 Append the following to file called `addons.js` in your storybook config (default: `.storybook`):
 
 ```js
 import 'storybook-addon-jsx/register';
 ```
+
 If the file doesn't exist yet, you'll have to create it.
 
 ### Usage
+
+Both have caveats and you should pick the best for your use case.
+There are two ways to use `addon-jsx`.
+
+1. Decorator - Order matters. Will include JSX for decorators added after the jsx decorator. Use `skip` option to omit these
+2. `addWithJSX` - You must change every `.add` to `.addWithJSX`. Extra decorators will not effect these.
+
+#### Decorator
+
+Import it into your stories file and then use it when you write stories:
+
+```js
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { jsxDecorator } from 'storybook-addon-jsx';
+
+const Test = ({
+  fontSize = '16px',
+  fontFamily = 'Arial',
+  align = 'left',
+  color = 'red',
+  children
+}) => (
+  <div style={{ color, fontFamily, fontSize, textAlign: align }}>
+    {children}
+  </div>
+);
+
+storiesOf('test', module)
+  .addDecorator(jsx)
+  .add('Paris', () => (
+    <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
+      Hello
+    </Test>
+  ))
+  .add('Orleans', () => <Test color="#236544">Hello</Test>);
+
+storiesOf('test 2', module).addWithJSX('Paris', () => (
+  <div color="#333">test</div>
+));
+```
+
+You can also configure globally:
+
+```js
+import { configure, addDecorator } from '@storybook/vue';
+import { jsxDecorator } from 'storybook-addon-jsx';
+
+addDecorator(JSXAddon);
+
+configure(loadStories, module);
+```
+
+```js
+import { storiesOf } from '@storybook/vue';
+
+storiesOf('Vue', module).add('template property', () => ({
+  template: `<div></div>`
+}));
+```
+
+#### addWithJSX
+
 Import it into your stories file and then use it when you write stories:
 
 ```js
@@ -38,7 +104,13 @@ import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
 
-const Test = ({ fontSize = '16px', fontFamily = 'Arial', align = 'left', color = 'red', children }) => (
+const Test = ({
+  fontSize = '16px',
+  fontFamily = 'Arial',
+  align = 'left',
+  color = 'red',
+  children
+}) => (
   <div style={{ color, fontFamily, fontSize, textAlign: align }}>
     {children}
   </div>
@@ -58,8 +130,9 @@ storiesOf('test 2', module).addWithJSX('Paris', () => (
 ```
 
 You can also configure globally:
+
 ```js
-import { configure, setAddon } from '@storybook/vue';
+import { configure, setAddon } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
@@ -67,19 +140,12 @@ setAddon(JSXAddon);
 configure(loadStories, module);
 ```
 
-```js
-import { storiesOf } from '@storybook/vue';
-
-storiesOf('Vue', module)
-  .addWithJSX('template property', () => ({ template: `<div></div>` }));
-```
-
 ## Options
 
 You can pass options as a third parameter.
 Options available:
 
-#### JSX
+### JSX
 
 - `skip` (default: 0) : Skip element in your component to display
 - Options from [react-element-to-jsx-string](https://github.com/algolia/react-element-to-jsx-string)
@@ -89,7 +155,7 @@ Options available:
 storiesOf('test 2', module).addWithJSX(
   'Paris',
   () => <TestContainer>Hello there</TestContainer>,
-  { displayName: 'Test' }, // can be a function { displayName: element => 'Test' }
+  { jsx: { displayName: 'Test' } } // can be a function { displayName: element => 'Test' }
 );
 // Output
 // <Test>Hello there</Test>
@@ -104,7 +170,7 @@ storiesOf('test 2', module).addWithJSX(
       <Test>Hello</Test>
     </div>
   ),
-  { skip: 1 },
+  { jsx: { skip: 1 } }
 );
 // Output
 // <Test>Hello</Test>
@@ -122,23 +188,25 @@ storiesOf('test 2', module).addWithJSX(
     </div>
   ),
   {
-    onBeforeRender: domString => {
-      if (domString.search('dangerouslySetInnerHTML') < 0) {
-        return ''
-      }
-      try {
-        domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
-        domString = /(')([^']*)/.exec(domString)[2]
-      } catch (err) {}
-      return domString
-    },
+    jsx: {
+      onBeforeRender: domString => {
+        if (domString.search('dangerouslySetInnerHTML') < 0) {
+          return ''
+        }
+        try {
+          domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
+          domString = /(')([^']*)/.exec(domString)[2]
+        } catch (err) {}
+        return domString
+      },
+    }
   },
 );
 // Output
 // <div>Inner HTML</div>
 ```
 
-#### Not JSX
+### Not JSX
 
 If a Vue story defines its view with a template string then it will be displayed
 
@@ -154,10 +222,24 @@ storiesOf('test 2', module).addWithJSX(
 Hello
                           </Test>`
   }),
-  { indent_size: 2 },
+  { jsx: { indent_size: 2 } }
 );
 // Output
 // <Test>
 //   Hello
 // </Test>
+```
+
+## Global Options
+
+To configure global options for this plugin, add the following to your `config.js`.
+
+```js
+import { addParameters } from '@storybook/react';
+
+addParameters({
+  jsx: {
+    // your options
+  }
+});
 ```
