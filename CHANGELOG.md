@@ -1,3 +1,15 @@
+# v7.0.0 (Fri Mar 15 2019)
+
+#### 💥  Breaking Change
+
+- Works with v5 + Written in TypeScript + Decorator Support [#51](https://github.com/storybooks/addon-jsx/pull/51) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v5.1.1 (Fri Mar 15 2019)
 
 #### 🐛  Bug Fix
