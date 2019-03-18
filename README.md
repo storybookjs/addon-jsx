@@ -61,7 +61,7 @@ const Test = ({
 );
 
 storiesOf('test', module)
-  .addDecorator(jsx)
+  .addDecorator(jsxDecorator)
   .add('Paris', () => (
     <Test fontSize={45} fontFamily="Roboto" align="center" color="#CAF200">
       Hello
@@ -69,9 +69,9 @@ storiesOf('test', module)
   ))
   .add('Orleans', () => <Test color="#236544">Hello</Test>);
 
-storiesOf('test 2', module).addWithJSX('Paris', () => (
-  <div color="#333">test</div>
-));
+storiesOf('test 2', module)
+  .addDecorator(jsxDecorator)
+  .add('Paris', () => <div color="#333">test</div>);
 ```
 
 You can also configure globally:
@@ -80,7 +80,12 @@ You can also configure globally:
 import { configure, addDecorator } from '@storybook/vue';
 import { jsxDecorator } from 'storybook-addon-jsx';
 
-addDecorator(JSXAddon);
+addDecorator(jsxDecorator);
+
+function loadStories() {
+  require('../stories/index.js');
+  // You can require as many stories as you need.
+}
 
 configure(loadStories, module);
 ```
@@ -136,6 +141,11 @@ import { configure, setAddon } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
 
 setAddon(JSXAddon);
+
+function loadStories() {
+  require('../stories/index.js');
+  // You can require as many stories as you need.
+}
 
 configure(loadStories, module);
 ```
