@@ -10,6 +10,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "dist",
+    "declarationDir": "lib",
+    "emitDeclarationOnly": true,
     "preserveConstEnums": true,
     "removeComments": false,
     "skipLibCheck": true,

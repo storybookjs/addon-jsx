@@ -1,3 +1,2 @@
-import '../../register'
-import '@storybook/addons'
-import '@storybook/addon-options/register'
+import '../../register';
+import '@storybook/addon-options/register';

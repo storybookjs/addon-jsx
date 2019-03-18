@@ -14,7 +14,7 @@
   },
   "scripts": {
     "prebuild": "rimraf lib",
-    "build": "babel src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx",
+    "build": "babel src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx && npm run build:types",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx",
     "netlify": "build-storybook -c ./example/.storybook",
     "prepare": "yarn build",
@@ -22,7 +22,8 @@
     "test": "yarn test:all",
     "test:all": "jest src",
     "test:dev": "jest src --watch",
-    "release": "./scripts/release.sh"
+    "release": "./scripts/release.sh",
+    "build:types": "tsc -p tsconfig.json"
   },
   "jest": {
     "testURL": "http://localhost"
@@ -36,7 +37,6 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
@@ -47,6 +47,7 @@
     "@storybook/core-events": "^5.0.1",
     "@storybook/react": "^5.0.1",
     "@types/js-beautify": "^1.8.0",
+    "@types/prismjs": "^1.9.1",
     "@types/react": "^16.8.8",
     "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/storybook__react": "^4.0.1",
@@ -57,16 +58,17 @@
     "husky": "^1.3.1",
     "jest": "test",
     "lint-staged": "^8.1.5",
-    "npm-run-all": "^4.1.5",
     "prettier": "^1.15.2",
     "prop-types": "^15.6.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-test-renderer": "^16.8.4",
     "regenerator-runtime": "^0.13.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "typescript": "^3.3.3333"
   },
   "peerDependencies": {
+    "@storybook/addons": "^5.0.1",
     "@babel/core": "^7.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
