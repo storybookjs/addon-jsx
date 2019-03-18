@@ -1,3 +1,21 @@
+# v7.0.1 (Mon Mar 18 2019)
+
+#### 🏠  Internal
+
+- add circle config [#56](https://github.com/storybooks/addon-jsx/pull/56) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- add tests for decorator [#55](https://github.com/storybooks/addon-jsx/pull/55) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- add type build [#53](https://github.com/storybooks/addon-jsx/pull/53) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 📝  Documentation
+
+- correct docs [#52](https://github.com/storybooks/addon-jsx/pull/52) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.0.0 (Fri Mar 15 2019)
 
 #### 💥  Breaking Change
