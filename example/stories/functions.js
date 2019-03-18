@@ -19,18 +19,28 @@ const withErrors = BaseComponent => props => {
 
 const SimpleWithErrors = withErrors(Simple);
 
-export default () =>
-  storiesOf('Function as a children', module)
-    .addWithJSX('No options', () => <Simple>{() => <span>World</span>}</Simple>)
-    .addWithJSX('Skip', () => <Simple>{() => <span>World</span>}</Simple>, {
-      skip: 1,
-    })
-    .addWithJSX(
-      'Skip and Rename',
-      () => <Simple>{() => <span>World</span>}</Simple>,
-      { skip: 1, displayName: () => 'Renamed' },
-    )
-    .addWithJSX('Deep function - No options', () => (
+storiesOf('Function as a children', module)
+  .addWithJSX('No options', () => <Simple>{() => <span>World</span>}</Simple>)
+  .addWithJSX('Skip', () => <Simple>{() => <span>World</span>}</Simple>, {
+    skip: 1
+  })
+  .addWithJSX(
+    'Skip and Rename',
+    () => <Simple>{() => <span>World</span>}</Simple>,
+    { skip: 1, displayName: () => 'Renamed' }
+  )
+  .addWithJSX('Deep function - No options', () => (
+    <Simple>
+      {() => (
+        <SimpleWithErrors>
+          <span>World</span>
+        </SimpleWithErrors>
+      )}
+    </Simple>
+  ))
+  .addWithJSX(
+    'Deep function - Skip',
+    () => (
       <Simple>
         {() => (
           <SimpleWithErrors>
@@ -38,17 +48,6 @@ export default () =>
           </SimpleWithErrors>
         )}
       </Simple>
-    ))
-    .addWithJSX(
-      'Deep function - Skip',
-      () => (
-        <Simple>
-          {() => (
-            <SimpleWithErrors>
-              <span>World</span>
-            </SimpleWithErrors>
-          )}
-        </Simple>
-      ),
-      { skip: 2 },
-    );
+    ),
+    { skip: 2 }
+  );
