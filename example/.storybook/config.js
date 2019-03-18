@@ -1,9 +1,14 @@
-import { configure } from '@storybook/react'
-import { setOptions } from '@storybook/addon-options'
+import { configure, setAddon } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
+import JSXAddon from '../../lib/index';
+
+setAddon(JSXAddon);
 
 function loadStories() {
-  require('../stories')
+  const req = require.context('../stories/', true, /\.stories\.js$/);
+  req.keys().forEach(req);
 }
+
 setOptions({
   name: 'CUSTOM-OPTIONS',
   url: 'https://github.com/kadirahq/storybook-addon-options',
@@ -12,7 +17,7 @@ setOptions({
   showDownPanel: true,
   showSearchBox: false,
   downPanelInRight: true,
-  sortStoriesByKind: false,
-})
+  sortStoriesByKind: false
+});
 
-configure(loadStories, module)
+configure(loadStories, module);
