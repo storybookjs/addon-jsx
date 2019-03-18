@@ -193,6 +193,13 @@ exports[`Storyshots Deep Test With children - Skip and rename 1`] = `
 </div>
 `;
 
+exports[`Storyshots Fragments Array 1`] = `
+Array [
+  <div />,
+  <div />,
+]
+`;
+
 exports[`Storyshots Fragments Fragment Shorthand 1`] = `
 Array [
   <div />,
