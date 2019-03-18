@@ -12,7 +12,7 @@ const Simple = props => (
 
 storiesOf('Decorator', module)
   .addDecorator(jsxDecorator)
-  .addWithJSX(
+  .add(
     'Simple Array',
     () => (
       <div>
@@ -22,7 +22,7 @@ storiesOf('Decorator', module)
     ),
     { skip: 1 }
   )
-  .addWithJSX(
+  .add(
     'Array with function',
     () => (
       <div>
@@ -33,7 +33,7 @@ storiesOf('Decorator', module)
     ),
     { skip: 1 }
   )
-  .addWithJSX(
+  .add(
     'Array with nested component',
     () => (
       <div>
