@@ -18,7 +18,7 @@ storiesOf('Fragments', module)
       <div />
     </React.Fragment>
   ))
-  .add('Array', () => [<div />, <div />])
+  .add('Array', () => [<div key="1" />, <div key="2" />])
   .add('Fragment Shorthand', () => (
     <>
       <div />
