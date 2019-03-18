@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { jsxDecorator } from '../../lib/index';
 
 const Component = () => <div />;
 const Simple = props => (
@@ -9,7 +10,8 @@ const Simple = props => (
   </div>
 );
 
-storiesOf('Children Array', module)
+storiesOf('Decorator', module)
+  .addDecorator(jsxDecorator)
   .addWithJSX(
     'Simple Array',
     () => (

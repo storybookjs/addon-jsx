@@ -29,6 +29,35 @@ exports[`Storyshots Children Array Simple Array 1`] = `
 </div>
 `;
 
+exports[`Storyshots Decorator Array with function 1`] = `
+<div>
+  <div />
+  <div />
+  <div />
+</div>
+`;
+
+exports[`Storyshots Decorator Array with nested component 1`] = `
+<div>
+  <div />
+  <div>
+    <span>
+      Hello
+    </span>
+    <span>
+      hello
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Decorator Simple Array 1`] = `
+<div>
+  <div />
+  <div />
+</div>
+`;
+
 exports[`Storyshots Deep Test No children - No options 1`] = `
 <div>
   <div>
