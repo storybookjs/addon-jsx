@@ -1,6 +1,6 @@
 import React from 'react';
 import { addons } from '@storybook/addons';
-import { RenderFunction, Story } from '@storybook/react';
+import { RenderFunction, Story, StoryDecorator } from '@storybook/react';
 import reactElementToJSXString, { Options } from 'react-element-to-jsx-string';
 import { html as beautifyHTML } from 'js-beautify';
 
@@ -76,11 +76,13 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
 };
 
 interface JSXParameters {
-  id: string;
-  parameters: { jsx?: JSXOptions };
+  kind: string;
+  story: string;
+  id?: string;
+  parameters?: { jsx?: JSXOptions };
 }
 
-export const jsxDecorator = function(
+export const jsxDecorator: StoryDecorator = function(
   storyFn: RenderFunction,
   parameters: JSXParameters
 ) {
@@ -114,7 +116,7 @@ export const jsxDecorator = function(
 
   channel.emit(EVENTS.ADD_JSX, parameters.id, jsx);
 
-  return story;
+  return <>{story}</>;
 };
 
 export default {
