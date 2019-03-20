@@ -1,3 +1,19 @@
+# v7.0.2 (Wed Mar 20 2019)
+
+#### 🐛  Bug Fix
+
+- fix types [#61](https://github.com/storybooks/addon-jsx/pull/61) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🏠  Internal
+
+- Add Fragment Tests [#57](https://github.com/storybooks/addon-jsx/pull/57) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.0.1 (Mon Mar 18 2019)
 
 #### 🏠  Internal
