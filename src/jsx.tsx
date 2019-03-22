@@ -1,33 +1,20 @@
-import React, { CSSProperties } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import React from 'react';
+import { ActionBar } from '@storybook/components';
+import { styled } from '@storybook/theming';
+import copy from 'copy-to-clipboard';
+import Theme from './theme';
 import Prism from './prism';
 import { Listener } from './register';
 
-const styles: Record<string, CSSProperties> = {
-  container: {
-    flex: 1,
-    padding: '10px',
-    position: 'relative'
-  },
-  btn: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    border: 'none',
-    borderTop: 'solid 1px rgba(0, 0, 0, 0.2)',
-    borderLeft: 'solid 1px rgba(0, 0, 0, 0.2)',
-    background: 'rgba(255, 255, 255, 0.5)',
-    padding: '5px 10px',
-    borderRadius: '4px 0 0 0',
-    color: 'rgba(0, 0, 0, 0.5)',
-    textTransform: 'uppercase',
-    outline: 'none',
-    cursor: 'pointer'
-  },
-  pre: {
-    flex: 1
-  }
-};
+const Container = styled.div({
+  height: '100%',
+  overflow: 'auto',
+  width: '100%'
+});
+
+const Code = styled.pre({
+  flex: 1
+});
 
 interface JSXProps {
   active: boolean;
@@ -47,10 +34,6 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
     });
   }, []);
 
-  if (!props.active) {
-    return null;
-  }
-
   let code = '';
   let highlighted = '';
 
@@ -59,19 +42,23 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
     highlighted = code ? Prism.highlight(code, Prism.languages.jsx) : '';
   }
 
-  return (
-    <div style={styles.container}>
-      <CopyToClipboard text={code}>
-        <button style={styles.btn} disabled={!code}>
-          Copy
-        </button>
-      </CopyToClipboard>
-      <pre
-        style={styles.pre}
-        dangerouslySetInnerHTML={{ __html: highlighted }}
-      />
-    </div>
-  );
+  const copyJsx = React.useCallback(() => copy(code), [code]);
+
+  return props.active ? (
+    <Container>
+      <Theme>
+        <Code dangerouslySetInnerHTML={{ __html: highlighted }} />
+        <ActionBar
+          actionItems={[
+            {
+              title: 'Copy',
+              onClick: copyJsx
+            }
+          ]}
+        />
+      </Theme>
+    </Container>
+  ) : null;
 };
 
 export default JSX;
