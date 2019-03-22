@@ -1,3 +1,24 @@
+# v7.1.0 (Fri Mar 22 2019)
+
+#### 🚀  Enhancement
+
+- Theme support [#62](https://github.com/storybooks/addon-jsx/pull/62) ([@lflpowell](https://github.com/lflpowell) [@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🐛  Bug Fix
+
+- fix circle build [#63](https://github.com/storybooks/addon-jsx/pull/63) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🏠  Internal
+
+- add released plugin to auto [#64](https://github.com/storybooks/addon-jsx/pull/64) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- [@lflpowell](https://github.com/lflpowell)
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.0.2 (Wed Mar 20 2019)
 
 #### 🐛  Bug Fix
