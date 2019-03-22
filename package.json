@@ -29,9 +29,9 @@
     "testURL": "http://localhost"
   },
   "dependencies": {
+    "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
     "prismjs": "^1.15.0",
-    "react-copy-to-clipboard": "^5.0.1",
     "react-element-to-jsx-string": "^14.0.2"
   },
   "devDependencies": {
@@ -40,16 +40,15 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "@storybook/addon-options": "^5.0.1",
-    "@storybook/addon-storyshots": "^5.0.1",
-    "@storybook/addons": "^5.0.1",
-    "@storybook/channels": "^5.0.1",
-    "@storybook/core-events": "^5.0.1",
-    "@storybook/react": "^5.0.1",
+    "@storybook/addon-options": "^5.0.3",
+    "@storybook/addon-storyshots": "^5.0.3",
+    "@storybook/addons": "^5.0.3",
+    "@storybook/channels": "^5.0.3",
+    "@storybook/core-events": "^5.0.3",
+    "@storybook/react": "^5.0.3",
     "@types/js-beautify": "^1.8.0",
     "@types/prismjs": "^1.9.1",
     "@types/react": "^16.8.8",
-    "@types/react-copy-to-clipboard": "^4.2.6",
     "@types/storybook__react": "^4.0.1",
     "auto": "^4.8.11",
     "babel-core": "^7.0.0-bridge.0",
