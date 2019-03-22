@@ -85,5 +85,11 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      "released"
+    ]
   }
 }
