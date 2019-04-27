@@ -24,6 +24,6 @@ addons.register(ADDON_ID, api => {
 
   addons.addPanel(ADDON_PANEL, {
     title: 'JSX',
-    render: ({ active }) => <JSX active={active} ob={ob} />
+    render: ({ active }) => <JSX key="addon-jsx" active={active} ob={ob} />
   });
 });
