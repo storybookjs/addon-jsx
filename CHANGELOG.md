@@ -1,3 +1,20 @@
+# v7.1.2 (Sat Apr 27 2019)
+
+#### 🐛  Bug Fix
+
+- replace escaped quotes with single quotes for better rendering [#69](https://github.com/storybooks/addon-jsx/pull/69) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 📝  Documentation
+
+- add using with IE11 docs [#71](https://github.com/storybooks/addon-jsx/pull/71) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- add storyshot testing docs [#70](https://github.com/storybooks/addon-jsx/pull/70) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.1.1 (Sat Apr 27 2019)
 
 #### 🐛  Bug Fix
