@@ -70,9 +70,21 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
         }
       : options;
 
-  return React.Children.map(code, c =>
-    applyBeforeRender(reactElementToJSXString(c, ooo as Options), options)
-  ).join('\n');
+  return React.Children.map(code, c => {
+    let string = applyBeforeRender(
+      reactElementToJSXString(c, ooo as Options),
+      options
+    );
+    const matches = string.match(/\S+=\"([^"]*)\"/g);
+
+    if (matches) {
+      matches.forEach(match => {
+        string = string.replace(match, match.replace(/&quot;/g, "'"));
+      });
+    }
+
+    return string;
+  }).join('\n');
 };
 
 interface JSXParameters {
