@@ -1,5 +1,5 @@
 import { configure, setAddon } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
+import { withOptions } from '@storybook/addon-options';
 import JSXAddon from '../../lib/index';
 
 setAddon(JSXAddon);
@@ -8,15 +8,9 @@ function loadStories() {
   require('../stories');
 }
 
-setOptions({
-  name: 'CUSTOM-OPTIONS',
-  url: 'https://github.com/kadirahq/storybook-addon-options',
-  goFullScreen: false,
-  showLeftPanel: true,
-  showDownPanel: true,
-  showSearchBox: false,
-  downPanelInRight: true,
-  sortStoriesByKind: false
+withOptions({
+  brandTitle: 'CUSTOM-OPTIONS',
+  brandUrl: 'https://github.com/kadirahq/storybook-addon-options'
 });
 
 configure(loadStories, module);
