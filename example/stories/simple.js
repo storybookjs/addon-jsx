@@ -35,4 +35,7 @@ storiesOf('Simple Test', module)
       </Simple>
     ),
     { skip: 1, displayName: 'Renamed' }
-  );
+  )
+  .addWithJSX('Data strings', () => (
+    <div data={`{"bar"}`} data-baz={`{"baz"}`} data-bat={`{"bat"}`} />
+  ));

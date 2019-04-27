@@ -258,6 +258,14 @@ exports[`Storyshots Function as a children Skip and Rename 1`] = `
 </div>
 `;
 
+exports[`Storyshots Simple Test Data strings 1`] = `
+<div
+  data="{\\"bar\\"}"
+  data-bat="{\\"bat\\"}"
+  data-baz="{\\"baz\\"}"
+/>
+`;
+
 exports[`Storyshots Simple Test No children - No options 1`] = `
 <div>
   <span>
