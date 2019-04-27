@@ -253,3 +253,19 @@ addParameters({
   }
 });
 ```
+
+## Testing with storyshots
+
+If you are using the `addWithJSX` method you will need to include `addon-jsx` in your test file.
+
+```js
+import initStoryshots from '@storybook/addon-storyshots';
+import { setAddon } from '@storybook/react';
+import JSXAddon from 'storybook-addon-jsx';
+
+setAddon(JSXAddon);
+
+initStoryshots({
+  /* configuration options */
+});
+```
