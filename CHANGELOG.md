@@ -1,3 +1,19 @@
+# v7.1.1 (Sat Apr 27 2019)
+
+#### 🐛  Bug Fix
+
+- fix key issue [#67](https://github.com/storybooks/addon-jsx/pull/67) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🏠  Internal
+
+- update auto [#68](https://github.com/storybooks/addon-jsx/pull/68) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.1.0 (Fri Mar 22 2019)
 
 #### 🚀  Enhancement
