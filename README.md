@@ -269,3 +269,24 @@ initStoryshots({
   /* configuration options */
 });
 ```
+
+## Usage with IE11
+
+Some of the dependencies that this package has use APIs not available in IE11.
+To get around this you can add the following to your `webpack.config.js` file
+(your paths might be slightly different):
+
+```js
+config.module.rules.push({
+  test: /\.js/,
+  include: path.resolve(__dirname, '../node_modules/stringify-object'),
+  use: [
+    {
+      loader: 'babel-loader',
+      options: {
+        presets: ['env']
+      }
+    }
+  ]
+});
+```
