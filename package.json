@@ -4,14 +4,8 @@
   "description": "Display the JSX of the story",
   "license": "MIT",
   "main": "lib/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/storybooks/addon-jsx"
-  },
-  "author": {
-    "email": "lisowski54@gamil.com",
-    "name": "Andrew Lisowski"
-  },
+  "repository": "storybookjs/addon-jsx",
+  "author": "Andrew Lisowski <lisowski54@gamil.com>",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx && npm run build:types",
@@ -22,7 +16,7 @@
     "test": "yarn test:all",
     "test:all": "jest src",
     "test:dev": "jest src --watch",
-    "release": "./scripts/release.sh",
+    "release": "auto shipit",
     "build:types": "tsc -p tsconfig.json"
   },
   "jest": {
@@ -50,7 +44,7 @@
     "@types/prismjs": "^1.9.1",
     "@types/react": "^16.8.8",
     "@types/storybook__react": "^4.0.1",
-    "auto": "^4.9.3",
+    "auto": "^7.2.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.5",
