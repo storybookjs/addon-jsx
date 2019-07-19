@@ -4,7 +4,7 @@
   "description": "Display the JSX of the story",
   "license": "MIT",
   "main": "lib/index.js",
-  "repository": "storybooks/addon-jsx",
+  "repository": "storybookjs/addon-jsx",
   "author": "Andrew Lisowski <lisowski54@gamil.com>",
   "scripts": {
     "prebuild": "rimraf lib",
