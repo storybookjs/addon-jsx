@@ -55,25 +55,31 @@ jobs:
           paths:
             - .
 
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/storybook-addon-jsx
+      - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
+          name: Release
+          command: yarn run release
+
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - install:
-          filters:
-            tags:
-              only: /.*/
+      - install
 
       - test:
           requires:
             - install
-          filters:
-            tags:
-              only: /.*/
 
       - build:
           requires:
             - install
-          filters:
-            tags:
-              only: /.*/
+
+      - release:
+          requires:
+            - test
+            - lint
