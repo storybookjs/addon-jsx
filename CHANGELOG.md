@@ -1,3 +1,17 @@
+# v7.1.3 (Fri Jul 19 2019)
+
+#### 🏠  Internal
+
+- move auto to CI [#82](https://github.com/storybookjs/addon-jsx/pull/82) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Bump handlebars from 4.1.1 to 4.1.2 [#74](https://github.com/storybookjs/addon-jsx/pull/74) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.1.2 (Sat Apr 27 2019)
 
 #### 🐛  Bug Fix
