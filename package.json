@@ -26,7 +26,7 @@
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
     "prismjs": "^1.15.0",
-    "react-element-to-jsx-string": "^14.0.2"
+    "react-element-to-jsx-string": "^14.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
