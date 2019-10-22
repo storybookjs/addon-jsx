@@ -39,7 +39,7 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
 
   if (current && jsx[current]) {
     code = jsx[current];
-    highlighted = code ? Prism.highlight(code, Prism.languages.jsx) : '';
+    highlighted = code ? Prism.highlight(code, Prism.languages.jsx, 'jsx') : '';
   }
 
   const copyJsx = React.useCallback(() => copy(code), [code]);

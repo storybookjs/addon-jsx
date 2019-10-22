@@ -1,6 +1,6 @@
 import React from 'react';
-import { addons } from '@storybook/addons';
-import { RenderFunction, Story, StoryDecorator } from '@storybook/react';
+import { addons, StoryContext, StoryFn } from '@storybook/addons';
+import { DecoratorFn } from '@storybook/react';
 import reactElementToJSXString, { Options } from 'react-element-to-jsx-string';
 import { html as beautifyHTML } from 'js-beautify';
 
@@ -87,16 +87,9 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
   }).join('\n');
 };
 
-interface JSXParameters {
-  kind: string;
-  story: string;
-  id?: string;
-  parameters?: { jsx?: JSXOptions };
-}
-
-export const jsxDecorator: StoryDecorator = function(
-  storyFn: RenderFunction,
-  parameters: JSXParameters
+export const jsxDecorator: DecoratorFn = function(
+  storyFn: StoryFn<React.ReactElement<unknown>>,
+  parameters: StoryContext
 ) {
   const defaultOpts = {
     skip: 0,
@@ -132,7 +125,7 @@ export const jsxDecorator: StoryDecorator = function(
 };
 
 export default {
-  addWithJSX(this: Story, kind: string, storyFn: RenderFunction) {
+  addWithJSX(this: StoryFn, kind: string, storyFn: StoryFn) {
     // @ts-ignore
     return this.add(kind, context => jsxDecorator(storyFn, context));
   }
