@@ -72,7 +72,6 @@
     "react-test-renderer": "^16.11.0",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
-    "storybook-chromatic": "^3.0.3",
     "typescript": "^3.3.3333"
   },
   "peerDependencies": {
