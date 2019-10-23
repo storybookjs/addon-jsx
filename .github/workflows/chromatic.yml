@@ -1,0 +1,15 @@
+name: "Chromatic"
+on:
+  pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: |
+        yarn
+    - uses: chromaui/action@releases/v1
+      with:
+        appCode: qceepgaflpj
+        token: ${{ secrets.GITHUB_TOKEN }}
