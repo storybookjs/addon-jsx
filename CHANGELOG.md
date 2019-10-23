@@ -12,10 +12,10 @@
 
 # v7.1.7 (Wed Oct 23 2019)
 
-#### ⚠️  Pushed to master
+#### ⚠️ Pushed to master
 
-- ADD required build-storybook command for action to work  ([@ndelangen](https://github.com/ndelangen))
-- ADD chromatic  ([@ndelangen](https://github.com/ndelangen))
+- ADD required build-storybook command for action to work ([@ndelangen](https://github.com/ndelangen))
+- ADD chromatic ([@ndelangen](https://github.com/ndelangen))
 
 #### Authors: 1
 
@@ -25,19 +25,15 @@
 
 # v7.1.6 (Sun Sep 01 2019)
 
-
-
 ---
 
 # v7.1.5 (Fri Jul 19 2019)
-
-
 
 ---
 
 # v7.1.3 (Fri Jul 19 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - move auto to CI [#82](https://github.com/storybookjs/addon-jsx/pull/82) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 - Bump handlebars from 4.1.1 to 4.1.2 [#74](https://github.com/storybookjs/addon-jsx/pull/74) ([@dependabot[bot]](https://github.com/dependabot[bot]))
@@ -51,11 +47,11 @@
 
 # v7.1.2 (Sat Apr 27 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - replace escaped quotes with single quotes for better rendering [#69](https://github.com/storybooks/addon-jsx/pull/69) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - add using with IE11 docs [#71](https://github.com/storybooks/addon-jsx/pull/71) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 - add storyshot testing docs [#70](https://github.com/storybooks/addon-jsx/pull/70) ([@hipstersmoothie](https://github.com/hipstersmoothie))
@@ -68,11 +64,11 @@
 
 # v7.1.1 (Sat Apr 27 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - fix key issue [#67](https://github.com/storybooks/addon-jsx/pull/67) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - update auto [#68](https://github.com/storybooks/addon-jsx/pull/68) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
@@ -84,15 +80,15 @@
 
 # v7.1.0 (Fri Mar 22 2019)
 
-#### 🚀  Enhancement
+#### 🚀 Enhancement
 
 - Theme support [#62](https://github.com/storybooks/addon-jsx/pull/62) ([@lflpowell](https://github.com/lflpowell) [@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - fix circle build [#63](https://github.com/storybooks/addon-jsx/pull/63) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - add released plugin to auto [#64](https://github.com/storybooks/addon-jsx/pull/64) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
@@ -105,11 +101,11 @@
 
 # v7.0.2 (Wed Mar 20 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - fix types [#61](https://github.com/storybooks/addon-jsx/pull/61) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - Add Fragment Tests [#57](https://github.com/storybooks/addon-jsx/pull/57) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
@@ -121,13 +117,13 @@
 
 # v7.0.1 (Mon Mar 18 2019)
 
-#### 🏠  Internal
+#### 🏠 Internal
 
 - add circle config [#56](https://github.com/storybooks/addon-jsx/pull/56) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 - add tests for decorator [#55](https://github.com/storybooks/addon-jsx/pull/55) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 - add type build [#53](https://github.com/storybooks/addon-jsx/pull/53) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
-#### 📝  Documentation
+#### 📝 Documentation
 
 - correct docs [#52](https://github.com/storybooks/addon-jsx/pull/52) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
@@ -139,7 +135,7 @@
 
 # v7.0.0 (Fri Mar 15 2019)
 
-#### 💥  Breaking Change
+#### 💥 Breaking Change
 
 - Works with v5 + Written in TypeScript + Decorator Support [#51](https://github.com/storybooks/addon-jsx/pull/51) ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
@@ -151,7 +147,7 @@
 
 # v5.1.1 (Fri Mar 15 2019)
 
-#### 🐛  Bug Fix
+#### 🐛 Bug Fix
 
 - Move `active` check out of the `kind` condition [#49](https://github.com/storybooks/addon-jsx/pull/49) ([@Landerson352](https://github.com/Landerson352))
 - fix(register): pass Title directly to panel [#43](https://github.com/storybooks/addon-jsx/pull/43) (wuxx1045@umn.edu)
@@ -160,17 +156,17 @@
 - Beautify html if template string is being displayed. [#29](https://github.com/storybooks/addon-jsx/pull/29) (alfredo.delgado@gmail.com)
 - Add support for Vue stories … [#27](https://github.com/storybooks/addon-jsx/pull/27) (ndelangen@me.com)
 
-#### ⚠️  Pushed to master
+#### ⚠️ Pushed to master
 
-- add auto  ([@lisowski54@gmail.com](https://github.com/lisowski54@gmail.com))
-- 5.4.0  ([@ndelangen](https://github.com/ndelangen))
-- UPDATE dependencies  ([@ndelangen](https://github.com/ndelangen))
-- 5.3.0  ([@adelgado@chewy.com](https://github.com/adelgado@chewy.com))
-- 5.2.0  ([@ndelangen](https://github.com/ndelangen))
-- ADD netlify command  ([@ndelangen](https://github.com/ndelangen))
-- UPGRADE && format  ([@ndelangen](https://github.com/ndelangen))
-- Update README.md  ([@ndelangen](https://github.com/ndelangen))
-- Update README.md  ([@ndelangen](https://github.com/ndelangen))
+- add auto ([@lisowski54@gmail.com](https://github.com/lisowski54@gmail.com))
+- 5.4.0 ([@ndelangen](https://github.com/ndelangen))
+- UPDATE dependencies ([@ndelangen](https://github.com/ndelangen))
+- 5.3.0 ([@adelgado@chewy.com](https://github.com/adelgado@chewy.com))
+- 5.2.0 ([@ndelangen](https://github.com/ndelangen))
+- ADD netlify command ([@ndelangen](https://github.com/ndelangen))
+- UPGRADE && format ([@ndelangen](https://github.com/ndelangen))
+- Update README.md ([@ndelangen](https://github.com/ndelangen))
+- Update README.md ([@ndelangen](https://github.com/ndelangen))
 
 #### Authors: 9
 
