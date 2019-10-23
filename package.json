@@ -1,23 +1,38 @@
 {
   "name": "storybook-addon-jsx",
-  "version": "7.1.6",
+  "version": "7.1.8",
   "description": "Display the JSX of the story",
-  "license": "MIT",
-  "main": "lib/index.js",
   "repository": "storybookjs/addon-jsx",
+  "license": "MIT",
   "author": "Andrew Lisowski <lisowski54@gamil.com>",
+  "main": "lib/index.js",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx && npm run build:types",
+    "build-storybook": "build-storybook -c ./example/.storybook",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx",
+    "build:types": "tsc -p tsconfig.json",
     "netlify": "build-storybook -c ./example/.storybook",
     "prepare": "yarn build",
+    "release": "auto shipit",
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
     "test": "yarn test:all",
     "test:all": "jest src",
-    "test:dev": "jest src --watch",
-    "release": "auto shipit",
-    "build:types": "tsc -p tsconfig.json"
+    "test:dev": "jest src --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "jest": {
     "testURL": "http://localhost"
@@ -26,7 +41,8 @@
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
     "prismjs": "^1.15.0",
-    "react-element-to-jsx-string": "^14.0.3"
+    "react-element-to-jsx-string": "^14.0.3",
+    "storybook-chromatic": "^3.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -65,20 +81,6 @@
     "@storybook/addons": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
-  },
-  "prettier": {
-    "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "auto": {
     "plugins": [
