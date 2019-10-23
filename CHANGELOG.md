@@ -1,3 +1,15 @@
+# v7.1.7 (Wed Oct 23 2019)
+
+#### ⚠️  Pushed to master
+
+- ADD chromatic  ([@ndelangen](https://github.com/ndelangen))
+
+#### Authors: 1
+
+- Norbert de Langen ([@ndelangen](https://github.com/ndelangen))
+
+---
+
 # v7.1.6 (Sun Sep 01 2019)
 
 
