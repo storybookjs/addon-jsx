@@ -1,3 +1,15 @@
+# v7.1.9 (Wed Oct 23 2019)
+
+#### ⚠️  Pushed to master
+
+- FIX ref to incorrect config path for storybook  ([@ndelangen](https://github.com/ndelangen))
+
+#### Authors: 1
+
+- Norbert de Langen ([@ndelangen](https://github.com/ndelangen))
+
+---
+
 # v7.1.7 (Wed Oct 23 2019)
 
 #### ⚠️ Pushed to master
