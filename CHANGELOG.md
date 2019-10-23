@@ -1,3 +1,16 @@
+# v7.1.10 (Wed Oct 23 2019)
+
+#### 🐛  Bug Fix
+
+- Upgrade dependencies [#90](https://github.com/storybookjs/addon-jsx/pull/90) ([@stof](https://github.com/stof) [@ndelangen](https://github.com/ndelangen))
+
+#### Authors: 2
+
+- Christophe Coevoet ([@stof](https://github.com/stof))
+- Norbert de Langen ([@ndelangen](https://github.com/ndelangen))
+
+---
+
 # v7.1.9 (Wed Oct 23 2019)
 
 #### ⚠️  Pushed to master
