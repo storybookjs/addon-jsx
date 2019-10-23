@@ -38,11 +38,10 @@
     "testURL": "http://localhost"
   },
   "dependencies": {
+    "@storybook/components": "^5.2.5",
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
-    "prismjs": "^1.15.0",
-    "react-element-to-jsx-string": "^14.0.3",
-    "storybook-chromatic": "^3.0.3"
+    "react-element-to-jsx-string": "^14.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -57,7 +56,6 @@
     "@storybook/core-events": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "@types/js-beautify": "^1.8.0",
-    "@types/prismjs": "^1.9.1",
     "@types/react": "^16.8.8",
     "@types/storybook__react": "^4.0.1",
     "auto": "^7.2.1",

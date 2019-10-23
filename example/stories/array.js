@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-const Component = () => <div />;
+const Component = () => <div id="from-function" />;
 const Simple = props => (
   <div>
     <span>Hello</span>
