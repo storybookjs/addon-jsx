@@ -2,23 +2,37 @@
   "name": "storybook-addon-jsx",
   "version": "7.1.8",
   "description": "Display the JSX of the story",
-  "license": "MIT",
-  "main": "lib/index.js",
   "repository": "storybookjs/addon-jsx",
+  "license": "MIT",
   "author": "Andrew Lisowski <lisowski54@gamil.com>",
+  "main": "lib/index.js",
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx && npm run build:types",
+    "build-storybook": "build-storybook -c ./example/.storybook",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx",
+    "build:types": "tsc -p tsconfig.json",
     "netlify": "build-storybook -c ./example/.storybook",
     "prepare": "yarn build",
+    "release": "auto shipit",
     "storybook": "start-storybook -p 9009 -c ./example/.storybook",
-    "build-storybook": "build-storybook",
     "test": "yarn test:all",
     "test:all": "jest src",
-    "test:dev": "jest src --watch",
-    "release": "auto shipit",
-    "build:types": "tsc -p tsconfig.json"
+    "test:dev": "jest src --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "jest": {
     "testURL": "http://localhost"
@@ -67,20 +81,6 @@
     "@storybook/addons": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
-  },
-  "prettier": {
-    "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "auto": {
     "plugins": [
