@@ -1,3 +1,16 @@
+# v7.1.12 (Wed Oct 23 2019)
+
+#### 🐛  Bug Fix
+
+- Use storybook syntax-highlighter [#92](https://github.com/storybookjs/addon-jsx/pull/92) ([@ndelangen](https://github.com/ndelangen) [@github-actions[bot]](https://github.com/github-actions[bot]))
+
+#### Authors: 2
+
+- Norbert de Langen ([@ndelangen](https://github.com/ndelangen))
+- [@github-actions[bot]](https://github.com/github-actions[bot])
+
+---
+
 # v7.1.11 (Wed Oct 23 2019)
 
 #### 🐛  Bug Fix
