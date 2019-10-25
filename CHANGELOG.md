@@ -1,3 +1,15 @@
+# v7.1.13 (Fri Oct 25 2019)
+
+#### 🐛  Bug Fix
+
+- [ImgBot] Optimize images [#93](https://github.com/storybookjs/addon-jsx/pull/93) ([@ImgBotApp](https://github.com/ImgBotApp))
+
+#### Authors: 1
+
+- Imgbot ([@ImgBotApp](https://github.com/ImgBotApp))
+
+---
+
 # v7.1.12 (Wed Oct 23 2019)
 
 #### 🐛  Bug Fix
