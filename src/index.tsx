@@ -64,10 +64,10 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
   const ooo =
     typeof options.displayName === 'string'
       ? {
-          ...options,
-          showFunctions: true,
-          displayName: () => options.displayName
-        }
+        ...options,
+        showFunctions: true,
+        displayName: () => options.displayName
+      }
       : options;
 
   return React.Children.map(code, c => {
@@ -87,7 +87,7 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
   }).join('\n');
 };
 
-export const jsxDecorator: DecoratorFn = function(
+export const jsxDecorator: DecoratorFn = function (
   storyFn: StoryFn<React.ReactElement<unknown>>,
   parameters: StoryContext
 ) {
@@ -125,8 +125,21 @@ export const jsxDecorator: DecoratorFn = function(
 };
 
 export default {
-  addWithJSX(this: StoryFn, kind: string, storyFn: StoryFn) {
+  addWithJSX(this: StoryFn, kind: string, storyFn: StoryFn, options: JSXOptions) {
     // @ts-ignore
-    return this.add(kind, context => jsxDecorator(storyFn, context));
+    return this.add(kind, context => {
+      const parameters = {
+        ...context || {},
+        parameters: {
+          ...((context && context.parameters) || {}),
+          jsx: {
+            ...((context && context.parameters && context.parameters.jsx) || {}),
+            ...options || {},
+          },
+        },
+      } as StoryContext;
+
+      return jsxDecorator(storyFn as StoryFn<React.ReactElement<unknown>>, parameters);
+    });
   }
 };
