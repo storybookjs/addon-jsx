@@ -1,3 +1,15 @@
+# v7.1.14 (Thu Jan 23 2020)
+
+#### 🐛  Bug Fix
+
+- feat: Upgrade react-element-to-jsx-string to latest version [#97](https://github.com/storybookjs/addon-jsx/pull/97) ([@leonelgalan](https://github.com/leonelgalan))
+
+#### Authors: 1
+
+- Leonel Galán ([@leonelgalan](https://github.com/leonelgalan))
+
+---
+
 # v7.1.13 (Fri Oct 25 2019)
 
 #### 🐛  Bug Fix
