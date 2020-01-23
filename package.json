@@ -41,7 +41,7 @@
     "@storybook/components": "^5.2.5",
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
-    "react-element-to-jsx-string": "14.3.1"
+    "react-element-to-jsx-string": "^14.3.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
