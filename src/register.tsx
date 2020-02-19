@@ -23,7 +23,7 @@ addons.register(ADDON_ID, api => {
   const ob = Observable(addons.getChannel(), api);
 
   addons.addPanel(ADDON_PANEL, {
-    title: 'JSX',
+    title: 'Contentful Code',
     render: ({ active }) => <JSX key="addon-jsx" active={active} ob={ob} />
   });
 });
