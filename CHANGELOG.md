@@ -1,3 +1,15 @@
+# v7.1.15 (Mon Mar 16 2020)
+
+#### 🐛  Bug Fix
+
+- Bump acorn from 5.7.3 to 5.7.4 [#99](https://github.com/storybookjs/addon-jsx/pull/99) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.1.14 (Thu Jan 23 2020)
 
 #### 🐛  Bug Fix
