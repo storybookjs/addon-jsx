@@ -165,7 +165,7 @@ Options available:
 storiesOf('test 2', module).addWithJSX(
   'Paris',
   () => <TestContainer>Hello there</TestContainer>,
-  { jsx: { displayName: 'Test' } } // can be a function { displayName: element => 'Test' }
+  { displayName: 'Test' } // can be a function { displayName: element => 'Test' }
 );
 // Output
 // <Test>Hello there</Test>
@@ -180,7 +180,7 @@ storiesOf('test 2', module).addWithJSX(
       <Test>Hello</Test>
     </div>
   ),
-  { jsx: { skip: 1 } }
+  { skip: 1 }
 );
 // Output
 // <Test>Hello</Test>
@@ -198,18 +198,16 @@ storiesOf('test 2', module).addWithJSX(
     </div>
   ),
   {
-    jsx: {
-      onBeforeRender: domString => {
-        if (domString.search('dangerouslySetInnerHTML') < 0) {
-          return ''
-        }
-        try {
-          domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
-          domString = /(')([^']*)/.exec(domString)[2]
-        } catch (err) {}
-        return domString
-      },
-    }
+    onBeforeRender: domString => {
+      if (domString.search('dangerouslySetInnerHTML') < 0) {
+        return ''
+      }
+      try {
+        domString = /(dangerouslySetInnerHTML={{)([^}}]*)/.exec(domString)[2]
+        domString = /(')([^']*)/.exec(domString)[2]
+      } catch (err) {}
+      return domString
+    },
   },
 );
 // Output
@@ -232,7 +230,7 @@ storiesOf('test 2', module).addWithJSX(
 Hello
                           </Test>`
   }),
-  { jsx: { indent_size: 2 } }
+  { indent_size: 2 }
 );
 // Output
 // <Test>
