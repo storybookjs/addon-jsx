@@ -135,45 +135,53 @@ function createElement({
       if (props.className.includes('class-name')) {
         const docs = components[name] || {};
 
-        title = children;
-        message = <div>{docs.description}</div>;
-      } else {
+        if (docs.description) {
+          title = children;
+          message = <div>{docs.description}</div>;
+        }
+      } else if (lastComponent.match(/^[A-Z]/)) {
+        console.log(components);
+        debugger;
         const { props = {} } = components[lastComponent] || {};
         const docs = props[name] || {};
 
-        title = (
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            {children}
-            {docs.required && (
-              <div style={{ color: 'red', fontWeight: 900 }}>Required</div>
-            )}
-          </div>
-        );
-        message = (
-          <div>
-            <div style={{ color: 'green', fontWeight: 'bold' }}>
-              <PrettyPropType propType={docs.type} />
+        if (docs.type || docs.description || docs.required) {
+          title = (
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              {children}
+              {docs.required && (
+                <div style={{ color: 'red', fontWeight: 900 }}>Required</div>
+              )}
             </div>
-            {docs.description}
-          </div>
-        );
+          );
+          message = (
+            <div>
+              <div style={{ color: 'green', fontWeight: 'bold' }}>
+                <PrettyPropType propType={docs.type} />
+              </div>
+              {docs.description}
+            </div>
+          );
+        }
       }
 
       if (props.className.includes('class-name')) {
         lastComponent = name;
       }
 
-      return (
-        <WithTooltip
-          placement="bottom"
-          trigger="hover"
-          tooltip={<TooltipMessage title={title} desc={message} />}
-        >
-          <TagName key={key} {...props}>
-            {children}
-          </TagName>
-        </WithTooltip>
-      );
+      if (title) {
+        return (
+          <WithTooltip
+            placement="bottom"
+            trigger="hover"
+            tooltip={<TooltipMessage title={title} desc={message} />}
+          >
+            <TagName key={key} {...props}>
+              {children}
+            </TagName>
+          </WithTooltip>
+        );
+      }
     }
 
     return (
