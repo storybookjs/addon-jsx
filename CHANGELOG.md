@@ -1,3 +1,15 @@
+# v7.2.0 (Fri Apr 10 2020)
+
+#### 🚀 Enhancement
+
+- Show type info on hover [#101](https://github.com/storybookjs/addon-jsx/pull/101) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.1.15 (Mon Mar 16 2020)
 
 #### 🐛  Bug Fix
