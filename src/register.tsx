@@ -4,6 +4,7 @@ import { STORY_RENDERED } from '@storybook/core-events';
 import Channel from '@storybook/channels';
 
 import JSX from './jsx';
+import { ComponentMap } from './renderer';
 import { ADDON_ID, ADDON_PANEL, EVENTS } from './constants';
 
 export interface Listener {
@@ -11,7 +12,7 @@ export interface Listener {
     scope: 'current' | 'jsx'
   ): typeof scope extends 'current'
     ? (id: string) => void
-    : (id: string, jsx: string) => void;
+    : (id: string, jsx: string, components: ComponentMap) => void;
 }
 
 const Observable = (channel: Channel, api: any) => (listener: Listener) => {
