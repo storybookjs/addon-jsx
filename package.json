@@ -41,7 +41,8 @@
     "@storybook/components": "^5.2.5",
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
-    "react-element-to-jsx-string": "^14.3.1"
+    "react-element-to-jsx-string": "^14.3.1",
+    "storybook-pretty-props": "^1.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
@@ -58,7 +59,7 @@
     "@types/js-beautify": "^1.8.0",
     "@types/react": "^16.8.8",
     "@types/storybook__react": "^4.0.1",
-    "auto": "^7.2.1",
+    "auto": "^9.26.8",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.5.0",
     "babel-loader": "^8.0.6",
@@ -68,10 +69,12 @@
     "prettier": "^1.15.2",
     "prop-types": "^15.6.2",
     "react": "^16.11.0",
+    "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.11.0",
     "react-test-renderer": "^16.11.0",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
+    "storybook-addon-react-docgen": "^1.2.32",
     "typescript": "^3.3.3333"
   },
   "peerDependencies": {

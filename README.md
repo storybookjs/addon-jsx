@@ -11,7 +11,7 @@
 This Storybook addon shows you the JSX of the story.
 It can be useful to see what props you set, for example.
 
-![Storybook Addon JSX Démo](screenshot.png)
+![Storybook Addon JSX Demo](screenshot.png)
 
 ## Getting started
 
@@ -252,6 +252,45 @@ addParameters({
     // your options
   }
 });
+```
+
+## Including DocGen Information
+
+This addon will display prop type information while hovering over a component or prop.
+This is accomplished through [a babel plugin](https://github.com/storybookjs/babel-plugin-react-docgen) in the default storybook configuration.
+To use the docgen information for TypeScript components you must include be using [a typescript docgen loader](https://github.com/strothj/react-docgen-typescript-loader)
+
+```js
+import { addParameters } from '@storybook/react';
+
+addParameters({
+  jsx: {
+    // your options
+  }
+});
+```
+
+### TypeScript Monorepo DocGen
+
+In a TypeScript monorepo you will probably be importing components through package names.
+In this situation storybook will load your compiled typescript and lose information about the props.
+
+One solution to get around this is to add a unique property to your component's `package.json` that points directly at the TypeScript source.
+We can then set storybook's webpack configuration to look for this property first, which will allow the TypeScript loader to insert docgen information.
+
+In your component's `package.json`:
+
+```json5
+{
+  // Can be any string you want, here we choose "source"
+  source: 'src/index.tsx'
+}
+```
+
+Then in your webpack config for storybook:
+
+```js
+config.resolve.mainFields = ['source', 'module', 'main'];
 ```
 
 ## Testing with storyshots

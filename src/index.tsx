@@ -5,6 +5,7 @@ import reactElementToJSXString, { Options } from 'react-element-to-jsx-string';
 import { html as beautifyHTML } from 'js-beautify';
 
 import { EVENTS } from './constants';
+import { ComponentMap } from './renderer';
 
 type VueComponent = {
   template?: string;
@@ -87,22 +88,58 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
   }).join('\n');
 };
 
+const getDocs = (story: React.ReactElement) => {
+  const types: ComponentMap = {};
+
+  function extract(innerChildren: React.ReactElement) {
+    if (!innerChildren) {
+      return;
+    }
+
+    if (Array.isArray(innerChildren)) {
+      innerChildren.forEach(extract);
+      return;
+    }
+
+    if (innerChildren.props && innerChildren.props.children) {
+      extract(innerChildren.props.children);
+    }
+
+    if (typeof innerChildren.type !== 'string' && innerChildren.type) {
+      const childType = innerChildren.type as any;
+      const name: string = childType.displayName || childType.name;
+
+      if (name && !types[name]) {
+        console.log(name, childType);
+        debugger;
+        types[name] = childType.__docgenInfo;
+      }
+    }
+  }
+
+  extract(story);
+
+  return types;
+};
+
+const defaultOpts = {
+  skip: 0,
+  showFunctions: true,
+  enableBeautify: true
+};
+
 export const jsxDecorator: DecoratorFn = function(
   storyFn: StoryFn<React.ReactElement<unknown>>,
   parameters: StoryContext
 ) {
-  const defaultOpts = {
-    skip: 0,
-    showFunctions: true,
-    enableBeautify: true
-  };
+  const channel = addons.getChannel();
+  const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
   const options = {
     ...defaultOpts,
     ...((parameters.parameters && parameters.parameters.jsx) || {})
   } as Required<JSXOptions>;
-  const channel = addons.getChannel();
 
-  const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
+  let components: ComponentMap = {};
   let jsx = '';
 
   if (story.template) {
@@ -116,10 +153,11 @@ export const jsxDecorator: DecoratorFn = function(
 
     if (rendered) {
       jsx = rendered;
+      components = getDocs(story);
     }
   }
 
-  channel.emit(EVENTS.ADD_JSX, parameters.id, jsx);
+  channel.emit(EVENTS.ADD_JSX, parameters.id, jsx, components);
 
   return <>{story}</>;
 };

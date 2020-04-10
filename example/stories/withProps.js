@@ -1,16 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-const Simple = ({ children }) => (
-  <div>
-    <span>Hello</span>
-    {children}
-  </div>
-);
+import Simple from '../components/simple';
 
 storiesOf('With Props', module)
   .addWithJSX('No children - No options', () => (
-    <Simple test="test" value={true} />
+    <Simple foo="bar" test="test" value={true} />
   ))
   .addWithJSX(
     'No children - Rename',

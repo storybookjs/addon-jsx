@@ -1,8 +1,10 @@
-import { configure, setAddon } from '@storybook/react';
+import { configure, setAddon, addDecorator } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
+import { withPropsTable } from 'storybook-addon-react-docgen';
 import JSXAddon from '../../lib/index';
 
 setAddon(JSXAddon);
+addDecorator(withPropsTable);
 
 function loadStories() {
   require('../stories');
