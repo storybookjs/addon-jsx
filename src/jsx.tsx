@@ -30,7 +30,7 @@ const JSX: React.FunctionComponent<JSXProps> = props => {
     });
   }, []);
 
-  const [code, components] = current && jsx[current] ? jsx[current] : [''];
+  const [code, components] = current && jsx[current] ? jsx[current] : ['', {}];
 
   const copyJsx = React.useCallback(() => copy(code), [code]);
 
