@@ -105,6 +105,10 @@ const getDocs = (story: React.ReactElement) => {
       extract(innerChildren.props.children);
     }
 
+    Object.values(innerChildren.props || {}).map(prop => {
+      extract(prop as React.ReactElement);
+    });
+
     if (typeof innerChildren.type !== 'string' && innerChildren.type) {
       const childType = innerChildren.type as any;
       const name: string = childType.displayName || childType.name;
