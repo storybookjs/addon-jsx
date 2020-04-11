@@ -76,7 +76,7 @@ interface CreateElementOptions {
   style?: React.CSSProperties;
 }
 
-let lastComponent = '';
+let componentStack: string[] = [];
 
 function createElement({
   node,
@@ -123,6 +123,7 @@ function createElement({
         };
     const children = childrenCreator(node.children as Node[]);
 
+    const lastComponent = componentStack[componentStack.length - 1] || '';
     const name = typeof children[0] === 'string' ? children[0] : '';
     const hasDocs =
       props.className.includes('class-name') ||
@@ -139,9 +140,9 @@ function createElement({
           title = children;
           message = <div>{docs.description}</div>;
         }
+
+        componentStack.push(name);
       } else if (lastComponent.match(/^[A-Z]/)) {
-        console.log(components);
-        debugger;
         const { props = {} } = components[lastComponent] || {};
         const docs = props[name] || {};
 
@@ -164,11 +165,6 @@ function createElement({
           );
         }
       }
-
-      if (props.className.includes('class-name')) {
-        lastComponent = name;
-      }
-
       if (title) {
         return (
           <WithTooltip
@@ -182,6 +178,8 @@ function createElement({
           </WithTooltip>
         );
       }
+    } else if (name === '/>' || name === '>') {
+      componentStack.pop();
     }
 
     return (

@@ -110,8 +110,6 @@ const getDocs = (story: React.ReactElement) => {
       const name: string = childType.displayName || childType.name;
 
       if (name && !types[name]) {
-        console.log(name, childType);
-        debugger;
         types[name] = childType.__docgenInfo;
       }
     }
