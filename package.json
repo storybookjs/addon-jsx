@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook -c ./example/.storybook",
     "build:dev": "babel -w src --out-dir lib --ignore spec.js,test.js --extensions .ts --extensions .js --extensions .tsx",
     "build:types": "tsc -p tsconfig.json",
+    "lint": "eslint --cache src --ext ts --ext tsx",
     "netlify": "build-storybook -c ./example/.storybook",
     "prepare": "yarn build",
     "release": "auto shipit",
@@ -38,23 +39,26 @@
     "testURL": "http://localhost"
   },
   "dependencies": {
-    "@storybook/components": "^5.2.5",
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
     "react-element-to-jsx-string": "^14.3.1",
     "storybook-pretty-props": "^1.0.3"
   },
   "devDependencies": {
+    "@design-systems/eslint-config": "^1.4.15",
+    "eslint": "^6.8.0",
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@storybook/addons": "^5.2.5",
+    "@storybook/channels": "^5.2.5",
+    "@storybook/theming": "^5.2.5",
+    "@storybook/components": "^5.2.5",
+    "@storybook/core-events": "^5.2.5",
     "@storybook/addon-options": "^5.0.3",
     "@storybook/addon-storyshots": "^5.0.3",
-    "@storybook/addons": "^5.0.3",
-    "@storybook/channels": "^5.0.3",
-    "@storybook/core-events": "^5.0.3",
     "@storybook/react": "^5.0.3",
     "@types/js-beautify": "^1.8.0",
     "@types/react": "^16.8.8",
@@ -78,8 +82,11 @@
     "typescript": "^3.3.3333"
   },
   "peerDependencies": {
-    "@babel/core": "^7.1.2",
-    "@storybook/addons": "^5.0.1",
+    "@storybook/addons": ">= 5.x",
+    "@storybook/channels": ">= 5.x",
+    "@storybook/theming": ">= 5.x",
+    "@storybook/components": ">= 5.x",
+    "@storybook/core-events": ">= 5.x",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

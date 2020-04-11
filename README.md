@@ -280,10 +280,10 @@ We can then set storybook's webpack configuration to look for this property firs
 
 In your component's `package.json`:
 
-```json5
+```jsonc
 {
   // Can be any string you want, here we choose "source"
-  source: 'src/index.tsx'
+  "source": "src/index.tsx"
 }
 ```
 
