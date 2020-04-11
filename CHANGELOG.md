@@ -1,3 +1,15 @@
+# v7.2.1 (Sat Apr 11 2020)
+
+#### 🐛 Bug Fix
+
+- use stack to track last component [#102](https://github.com/storybookjs/addon-jsx/pull/102) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.2.0 (Fri Apr 10 2020)
 
 #### 🚀 Enhancement
