@@ -1,24 +1,41 @@
+/* eslint-disable no-underscore-dangle, @typescript-eslint/no-explicit-any */
+
 import React from 'react';
-import { addons, StoryContext, StoryFn } from '@storybook/addons';
-import { DecoratorFn } from '@storybook/react';
+import {
+  addons,
+  StoryContext,
+  StoryFn,
+  StoryApi,
+  ClientStoryApi
+} from '@storybook/addons';
 import reactElementToJSXString, { Options } from 'react-element-to-jsx-string';
 import { html as beautifyHTML } from 'js-beautify';
 
 import { EVENTS } from './constants';
 import { ComponentMap } from './renderer';
 
+export declare const addDecorator: ClientStoryApi<any>['addDecorator'];
+export declare type DecoratorFn = Parameters<typeof addDecorator>[0];
+
 type VueComponent = {
+  /** The template for the Vue component */
   template?: string;
 };
 
 interface JSXOptions extends HTMLBeautifyOptions {
+  /** How many wrappers to skip when rendering the jsx */
   skip?: number;
+  /** Whether to show the function in the jsx tab */
   showFunctions?: boolean;
+  /** Whether to format HTML or Vue markup */
   enableBeautify?: boolean;
+  /** Override the display name used for a component */
   displayName?: string | Options['displayName'];
+  /** A function ran before the story is rendered */
   onBeforeRender?(dom: string): string;
 }
 
+/** Run the user supplied onBeforeRender function if it exists */
 const applyBeforeRender = (domString: string, options: JSXOptions) => {
   if (typeof options.onBeforeRender !== 'function') {
     return domString;
@@ -27,39 +44,46 @@ const applyBeforeRender = (domString: string, options: JSXOptions) => {
   return options.onBeforeRender(domString);
 };
 
-const renderJsx = (code: any, options: Required<JSXOptions>) => {
+/** Apply the users parameters and render the jsx for a story */
+const renderJsx = (code: React.ReactElement, options: Required<JSXOptions>) => {
+  let renderedJSX = code;
+  let Type = renderedJSX.type;
+
   for (let i = 0; i < options.skip; i++) {
     if (typeof code === 'undefined') {
+      // eslint-disable-next-line no-console
       console.warn('Cannot skip undefined element');
       return;
     }
 
     if (React.Children.count(code) > 1) {
+      // eslint-disable-next-line no-console
       console.warn('Trying to skip an array of elements');
       return;
     }
 
-    if (typeof code.props.children === 'undefined') {
+    if (typeof renderedJSX.props.children === 'undefined') {
+      // eslint-disable-next-line no-console
       console.warn('Not enough children to skip elements.');
 
-      if (typeof code.type === 'function' && code.type.name === '') {
-        code = code.type(code.props);
+      if (typeof Type === 'function' && Type.name === '') {
+        renderedJSX = <Type {...renderedJSX.props} />;
       }
+    } else if (typeof renderedJSX.props.children === 'function') {
+      renderedJSX = renderedJSX.props.children();
     } else {
-      if (typeof code.props.children === 'function') {
-        code = code.props.children();
-      } else {
-        code = code.props.children;
-      }
+      renderedJSX = renderedJSX.props.children;
     }
   }
 
   if (typeof code === 'undefined') {
+    // eslint-disable-next-line no-console
     return console.warn('Too many skip or undefined component');
   }
 
-  while (typeof code.type === 'function' && code.type.name === '') {
-    code = code.type(code.props);
+  while (typeof Type === 'function' && Type.name === '') {
+    renderedJSX = <Type {...renderedJSX.props} />;
+    Type = renderedJSX.type;
   }
 
   const ooo =
@@ -76,7 +100,7 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
       reactElementToJSXString(c, ooo as Options),
       options
     );
-    const matches = string.match(/\S+=\"([^"]*)\"/g);
+    const matches = string.match(/\S+=\\"([^"]*)\\"/g);
 
     if (matches) {
       matches.forEach(match => {
@@ -88,9 +112,11 @@ const renderJsx = (code: any, options: Required<JSXOptions>) => {
   }).join('\n');
 };
 
+/** Extract the docs for all components used in a story */
 const getDocs = (story: React.ReactElement) => {
   const types: ComponentMap = {};
 
+  /** Walk the story for components */
   function extract(innerChildren: React.ReactElement) {
     if (!innerChildren) {
       return;
@@ -105,7 +131,7 @@ const getDocs = (story: React.ReactElement) => {
       extract(innerChildren.props.children);
     }
 
-    Object.values(innerChildren.props || {}).map(prop => {
+    Object.values(innerChildren.props || {}).forEach(prop => {
       extract(prop as React.ReactElement);
     });
 
@@ -130,15 +156,16 @@ const defaultOpts = {
   enableBeautify: true
 };
 
-export const jsxDecorator: DecoratorFn = function(
-  storyFn: StoryFn<React.ReactElement<unknown>>,
-  parameters: StoryContext
-) {
+/** Extract components from story and emit them to the panel */
+export const jsxDecorator = (
+  storyFn: StoryFn<React.ReactElement<any>>,
+  parameters?: StoryContext
+) => {
   const channel = addons.getChannel();
   const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
   const options = {
     ...defaultOpts,
-    ...((parameters.parameters && parameters.parameters.jsx) || {})
+    ...((parameters && parameters.parameters.jsx) || {})
   } as Required<JSXOptions>;
 
   let components: ComponentMap = {};
@@ -159,14 +186,13 @@ export const jsxDecorator: DecoratorFn = function(
     }
   }
 
-  channel.emit(EVENTS.ADD_JSX, parameters.id, jsx, components);
+  channel.emit(EVENTS.ADD_JSX, (parameters || {}).id, jsx, components);
 
-  return <>{story}</>;
+  return story;
 };
 
 export default {
-  addWithJSX(this: StoryFn, kind: string, storyFn: StoryFn) {
-    // @ts-ignore
+  addWithJSX(this: StoryApi, kind: string, storyFn: StoryFn<any>) {
     return this.add(kind, context => jsxDecorator(storyFn, context));
   }
 };

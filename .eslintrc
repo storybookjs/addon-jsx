@@ -1,0 +1,6 @@
+{
+  "extends": "@design-systems",
+  "rules": {
+    "no-undef": 0
+  }
+}

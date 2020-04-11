@@ -42,6 +42,15 @@ jobs:
           name: Test
           command: yarn test
 
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/storybook-addon-jsx
+      - run:
+          name: Lint
+          command: yarn lint
+
   build:
     <<: *defaults
     steps:
@@ -75,11 +84,16 @@ workflows:
           requires:
             - install
 
+      - lint:
+          requires:
+            - install
+
       - build:
           requires:
             - install
 
       - release:
           requires:
+            - lint
             - test
             - build

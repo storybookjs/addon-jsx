@@ -6,23 +6,31 @@ type StyleSheet = Record<string, React.CSSProperties>;
 export type ComponentMap = Record<
   string,
   {
+    /** The description of the component */
     description?: string;
+    /** The display name of the component */
     displayName: string;
+    /** The children of the component */
     children: (Node | string)[];
+    /** The props of the component */
     props?: Record<
       string,
       {
+        /** Whether the prop is required */
         required?: boolean;
+        /** The description of the prop */
         description?: string;
+        /** The type of the prop */
         type: ComponentProps<typeof PrettyPropType>['propType'];
       }
     >;
   }
 >;
 
+/** Combine the classnames and the stylesheet into a style prop */
 function createStyleObject(
   classNames: string[],
-  elementStyle = {},
+  elementStyle: React.CSSProperties,
   stylesheet: StyleSheet
 ) {
   return classNames.reduce((styleObject, className) => {
@@ -30,24 +38,33 @@ function createStyleObject(
   }, elementStyle);
 }
 
+/** Join and array of classnames into one */
 function createClassNameString(classNames: string[]) {
   return classNames.join(' ');
 }
 
 interface Node {
+  /** The type of node */
   type: string;
+  /** The HTML tag to use to render the node */
   tagName: string;
+  /** Properties of the HTML node to create */
   properties: {
+    /** The classNames to put on the node */
     className: string[];
+    /** The style object to put on the node */
     style?: React.CSSProperties;
   };
+  /** The children of the HTML node to create */
   children: React.ReactNode;
+  /** The value of the node to create */
   value?: string;
 }
 
+/** Render the rows of children to HTML nodes or text */
 function createChildren(
   components: ComponentMap,
-  stylesheet?: StyleSheet,
+  stylesheet: StyleSheet,
   useInlineStyles?: boolean
 ) {
   let childrenCount = 0;
@@ -56,6 +73,7 @@ function createChildren(
     childrenCount += 1;
 
     return children.map((child, i) =>
+      // eslint-disable-next-line @typescript-eslint/no-use-before-define
       createElement({
         node: child,
         stylesheet,
@@ -68,16 +86,23 @@ function createChildren(
 }
 
 interface CreateElementOptions {
+  /** The node to create */
   node: Node;
+  /** A react key to apply to the node */
   key: string;
+  /** The stylesheet to use to style the highlighted output */
   stylesheet?: StyleSheet;
+  /** A map of component used in the story and their docs */
   components: ComponentMap;
+  /** Whether to inline all of the styles in the highlighted output */
   useInlineStyles?: boolean;
+  /** The style object to put on the node */
   style?: React.CSSProperties;
 }
 
-let componentStack: string[] = [];
+const componentStack: string[] = [];
 
+/** Transform a row of highlighted output into an HTML node */
 function createElement({
   node,
   stylesheet = {},
@@ -90,8 +115,10 @@ function createElement({
 
   if (type === 'text') {
     return value;
-  } else if (tagName) {
-    const TagName = tagName as any;
+  }
+
+  if (tagName) {
+    const TagName = tagName as keyof JSX.IntrinsicElements;
     const childrenCreator = createChildren(
       components,
       stylesheet,
@@ -113,7 +140,7 @@ function createElement({
           },
           style: createStyleObject(
             properties.className,
-            Object.assign({}, properties.style, style),
+            { ...properties.style, ...style },
             stylesheet
           )
         }
@@ -143,8 +170,8 @@ function createElement({
 
         componentStack.push(name);
       } else if (lastComponent.match(/^[A-Z]/)) {
-        const { props = {} } = components[lastComponent] || {};
-        const docs = props[name] || {};
+        const { props: componentProps = {} } = components[lastComponent] || {};
+        const docs = componentProps[name] || {};
 
         if (docs.type || docs.description || docs.required) {
           title = (
@@ -165,6 +192,7 @@ function createElement({
           );
         }
       }
+
       if (title) {
         return (
           <WithTooltip
@@ -191,11 +219,15 @@ function createElement({
 }
 
 interface RenderRows {
+  /** A row to render in the highlighted output */
   rows: Node[];
+  /** The stylesheet to use to style the highlighted output */
   stylesheet: StyleSheet;
+  /** Whether to inline all of the styles in the highlighted output */
   useInlineStyles?: boolean;
 }
 
+/** Render a row from the react-syntax-highlighter output */
 const jsxRenderer = (components: ComponentMap) => ({
   rows,
   stylesheet,

@@ -15,13 +15,15 @@ export interface Listener {
     : (id: string, jsx: string, components: ComponentMap) => void;
 }
 
-const Observable = (channel: Channel, api: any) => (listener: Listener) => {
+/** A function that lets the panel listen to storybook event */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const observable = (channel: Channel, api: any) => (listener: Listener) => {
   channel.on(EVENTS.ADD_JSX, listener.next('jsx'));
   api.on(STORY_RENDERED, listener.next('current'));
 };
 
 addons.register(ADDON_ID, api => {
-  const ob = Observable(addons.getChannel(), api);
+  const ob = observable(addons.getChannel(), api);
 
   addons.addPanel(ADDON_PANEL, {
     title: 'JSX',

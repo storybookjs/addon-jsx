@@ -11,30 +11,36 @@ const Container = styled.div(({ theme }) => ({
 }));
 
 interface JSXProps {
+  /** Whether the panel is active */
   active: boolean;
   ob(listener: Listener): void;
 }
 
-const JSX: React.FunctionComponent<JSXProps> = props => {
+/** The panel that renders the jsx for the story */
+const JSX = ({ ob, active }: JSXProps) => {
   const [current, setCurrent] = React.useState<string | undefined>(undefined);
   const [jsx, setJsx] = React.useState<Record<string, [string, ComponentMap]>>(
     {}
   );
 
-  const addJsx = (id: string, newJsx: string, components: ComponentMap) =>
-    setJsx({ ...jsx, [id]: [newJsx, components] });
-
   React.useEffect(() => {
-    props.ob({
-      next: type => (type === 'jsx' ? addJsx : setCurrent)
+    ob({
+      next: type => {
+        if (type === 'jsx') {
+          return (id: string, newJsx: string, components: ComponentMap) =>
+            setJsx({ ...jsx, [id]: [newJsx, components] });
+        }
+
+        return setCurrent;
+      }
     });
-  }, []);
+  }, [ob, jsx]);
 
   const [code, components] = current && jsx[current] ? jsx[current] : ['', {}];
 
   const copyJsx = React.useCallback(() => copy(code), [code]);
 
-  return props.active ? (
+  return active ? (
     <Container>
       <SyntaxHighlighter
         language="jsx"
