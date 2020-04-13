@@ -50,13 +50,13 @@ const renderJsx = (code: React.ReactElement, options: Required<JSXOptions>) => {
   let Type = renderedJSX.type;
 
   for (let i = 0; i < options.skip; i++) {
-    if (typeof code === 'undefined') {
+    if (typeof renderedJSX === 'undefined') {
       // eslint-disable-next-line no-console
       console.warn('Cannot skip undefined element');
       return;
     }
 
-    if (React.Children.count(code) > 1) {
+    if (React.Children.count(renderedJSX) > 1) {
       // eslint-disable-next-line no-console
       console.warn('Trying to skip an array of elements');
       return;
