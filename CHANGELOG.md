@@ -1,3 +1,16 @@
+# v7.2.2 (Mon Apr 13 2020)
+
+#### 🐛 Bug Fix
+
+- fix children bug [#103](https://github.com/storybookjs/addon-jsx/pull/103) ([@hipstersmoothie](https://github.com/hipstersmoothie) [@github-actions[bot]](https://github.com/github-actions[bot]))
+
+#### Authors: 2
+
+- [@github-actions[bot]](https://github.com/github-actions[bot])
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.2.1 (Sat Apr 11 2020)
 
 #### 🐛 Bug Fix
