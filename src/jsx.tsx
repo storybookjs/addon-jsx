@@ -34,7 +34,8 @@ const JSX = ({ ob, active }: JSXProps) => {
         return setCurrent;
       }
     });
-  }, [ob, jsx]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [code, components] = current && jsx[current] ? jsx[current] : ['', {}];
 
