@@ -34,7 +34,7 @@ const JSX = ({ ob, active }: JSXProps) => {
         return setCurrent;
       }
     });
-  }, [ob, jsx]);
+  }, []);
 
   const [code, components] = current && jsx[current] ? jsx[current] : ['', {}];
 
