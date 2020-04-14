@@ -1,3 +1,15 @@
+# v7.2.3 (Tue Apr 14 2020)
+
+#### 🐛 Bug Fix
+
+- corral runaway useEffect [#104](https://github.com/storybookjs/addon-jsx/pull/104) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.2.2 (Mon Apr 13 2020)
 
 #### 🐛 Bug Fix
