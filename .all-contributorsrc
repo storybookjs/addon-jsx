@@ -43,6 +43,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "samouss",
+      "name": "Samuel Vaillant",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6513513?v=4",
+      "profile": "https://github.com/samouss",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
