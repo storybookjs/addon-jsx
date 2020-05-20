@@ -116,6 +116,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "breadadams",
+      "name": "Brad Adams",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5795227?v=4",
+      "profile": "http://breadadams.com",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7
