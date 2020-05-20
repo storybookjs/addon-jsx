@@ -69,7 +69,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/storybook-addon-jsx
-      - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run:
           name: Release
           command: yarn run release
