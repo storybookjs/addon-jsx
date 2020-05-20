@@ -345,6 +345,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/samouss"><img src="https://avatars2.githubusercontent.com/u/6513513?v=4" width="100px;" alt=""/><br /><sub><b>Samuel Vaillant</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=samouss" title="Code">💻</a> <a href="https://github.com/storybookjs/addon-jsx/commits?author=samouss" title="Documentation">📖</a></td>
     <td align="center"><a href="https://twitter.com/_alexandrebodin"><img src="https://avatars2.githubusercontent.com/u/6065744?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre BODIN</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=alexandrebodin" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/stof"><img src="https://avatars0.githubusercontent.com/u/439401?v=4" width="100px;" alt=""/><br /><sub><b>Christophe Coevoet</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=stof" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.leonelgalan.com"><img src="https://avatars3.githubusercontent.com/u/727774?v=4" width="100px;" alt=""/><br /><sub><b>Leonel Galán</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=leonelgalan" title="Code">💻</a></td>
   </tr>
 </table>
 
