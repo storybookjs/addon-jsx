@@ -339,7 +339,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://wcastand.tech/"><img src="https://avatars3.githubusercontent.com/u/2178244?v=4" width="100px;" alt=""/><br /><sub><b>William</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=wcastand" title="Code">💻</a> <a href="#design-wcastand" title="Design">🎨</a> <a href="#ideas-wcastand" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://wcastand.tech/"><img src="https://avatars3.githubusercontent.com/u/2178244?v=4" width="100px;" alt=""/><br /><sub><b>William</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=wcastand" title="Code">💻</a> <a href="#design-wcastand" title="Design">🎨</a> <a href="#ideas-wcastand" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/storybookjs/addon-jsx/commits?author=wcastand" title="Documentation">📖</a></td>
   </tr>
 </table>
 
