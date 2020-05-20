@@ -53,6 +53,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "alexandrebodin",
+      "name": "Alexandre BODIN",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6065744?v=4",
+      "profile": "https://twitter.com/_alexandrebodin",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
