@@ -1,0 +1,26 @@
+{
+  "projectName": "addon-jsx",
+  "projectOwner": "storybookjs",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "wcastand",
+      "name": "William",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2178244?v=4",
+      "profile": "https://wcastand.tech/",
+      "contributions": [
+        "code",
+        "design",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
