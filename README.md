@@ -352,7 +352,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/smollweide"><img src="https://avatars2.githubusercontent.com/u/2912007?v=4" width="100px;" alt=""/><br /><sub><b>Simon Mollweide</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=smollweide" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/lflpowell"><img src="https://avatars0.githubusercontent.com/u/37211236?v=4" width="100px;" alt=""/><br /><sub><b>lflpowell</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=lflpowell" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/expe-lbenychou"><img src="https://avatars1.githubusercontent.com/u/31204794?v=4" width="100px;" alt=""/><br /><sub><b>lionelbenychou</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=expe-lbenychou" title="Code">💻</a></td>
-    <td align="center"><a href="http://breadadams.com"><img src="https://avatars1.githubusercontent.com/u/5795227?v=4" width="100px;" alt=""/><br /><sub><b>Brad Adams</b></sub></a><br /><a href="#design-breadadams" title="Design">🎨</a></td>
+    <td align="center"><a href="http://breadadams.com"><img src="https://avatars1.githubusercontent.com/u/5795227?v=4" width="100px;" alt=""/><br /><sub><b>Brad Adams</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=breadadams" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://twitter.com/arahansen"><img src="https://avatars0.githubusercontent.com/u/8746094?v=4" width="100px;" alt=""/><br /><sub><b>Andrew Hansen</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=arahansen" title="Code">💻</a></td>
   </tr>
 </table>
 

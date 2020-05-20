@@ -123,7 +123,16 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/5795227?v=4",
       "profile": "http://breadadams.com",
       "contributions": [
-        "design"
+        "doc"
+      ]
+    },
+    {
+      "login": "arahansen",
+      "name": "Andrew Hansen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8746094?v=4",
+      "profile": "http://twitter.com/arahansen",
+      "contributions": [
+        "code"
       ]
     }
   ],
