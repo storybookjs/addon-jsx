@@ -340,6 +340,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://wcastand.tech/"><img src="https://avatars3.githubusercontent.com/u/2178244?v=4" width="100px;" alt=""/><br /><sub><b>William</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=wcastand" title="Code">💻</a> <a href="#design-wcastand" title="Design">🎨</a> <a href="#ideas-wcastand" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/storybookjs/addon-jsx/commits?author=wcastand" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://hipstersmoothie.com"><img src="https://avatars3.githubusercontent.com/u/1192452?v=4" width="100px;" alt=""/><br /><sub><b>Andrew Lisowski</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=hipstersmoothie" title="Code">💻</a> <a href="https://github.com/storybookjs/addon-jsx/commits?author=hipstersmoothie" title="Documentation">📖</a> <a href="#infra-hipstersmoothie" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-hipstersmoothie" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
