@@ -1,0 +1,140 @@
+{
+  "projectName": "addon-jsx",
+  "projectOwner": "storybookjs",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "wcastand",
+      "name": "William",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2178244?v=4",
+      "profile": "https://wcastand.tech/",
+      "contributions": [
+        "code",
+        "design",
+        "ideas",
+        "doc"
+      ]
+    },
+    {
+      "login": "hipstersmoothie",
+      "name": "Andrew Lisowski",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1192452?v=4",
+      "profile": "http://hipstersmoothie.com",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "ndelangen",
+      "name": "Norbert de Langen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/3070389?v=4",
+      "profile": "https://github.com/ndelangen",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "samouss",
+      "name": "Samuel Vaillant",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6513513?v=4",
+      "profile": "https://github.com/samouss",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "alexandrebodin",
+      "name": "Alexandre BODIN",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6065744?v=4",
+      "profile": "https://twitter.com/_alexandrebodin",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stof",
+      "name": "Christophe Coevoet",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/439401?v=4",
+      "profile": "https://github.com/stof",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "leonelgalan",
+      "name": "Leonel Galán",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/727774?v=4",
+      "profile": "http://www.leonelgalan.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Landerson352",
+      "name": "Lincoln Anderson",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5214462?v=4",
+      "profile": "http://threefivetwo.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "smollweide",
+      "name": "Simon Mollweide",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2912007?v=4",
+      "profile": "https://github.com/smollweide",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lflpowell",
+      "name": "lflpowell",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37211236?v=4",
+      "profile": "https://github.com/lflpowell",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "expe-lbenychou",
+      "name": "lionelbenychou",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31204794?v=4",
+      "profile": "https://github.com/expe-lbenychou",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "breadadams",
+      "name": "Brad Adams",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5795227?v=4",
+      "profile": "http://breadadams.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "arahansen",
+      "name": "Andrew Hansen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8746094?v=4",
+      "profile": "http://twitter.com/arahansen",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
