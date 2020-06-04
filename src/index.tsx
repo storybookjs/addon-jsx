@@ -197,8 +197,6 @@ export const jsxDecorator = makeDecorator({
 
 export default {
   addWithJSX(this: StoryApi, kind: string, storyFn: StoryFn<any>) {
-    return this.add(kind, context =>
-      jsxDecorator(storyFn, context as StoryContext)
-    );
+    return this.add(kind, context => jsxDecorator(storyFn, context));
   }
 };
