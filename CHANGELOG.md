@@ -1,3 +1,24 @@
+# v7.3.0 (Fri Jun 05 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Peter Mikitsh ([@petermikitsh](https://github.com/petermikitsh)), for all your work!
+
+#### 🚀 Enhancement
+
+- feat: disable jsx per story [#110](https://github.com/storybookjs/addon-jsx/pull/110) ([@petermikitsh](https://github.com/petermikitsh))
+
+#### 📝 Documentation
+
+- Update auto + add all-contributors [#108](https://github.com/storybookjs/addon-jsx/pull/108) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Peter Mikitsh ([@petermikitsh](https://github.com/petermikitsh))
+
+---
+
 # v7.2.3 (Tue Apr 14 2020)
 
 #### 🐛 Bug Fix
