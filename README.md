@@ -216,6 +216,22 @@ storiesOf('test 2', module).addWithJSX(
 // <div>Inner HTML</div>
 ```
 
+### Disable JSX Addon
+
+If enabled globally, the JSX addon can be disabled on individual stories:
+
+```jsx
+export const Simple = () => <div>Hello</div>;
+
+Simple.story = {
+  parameters: {
+    jsx: {
+      disable: true
+    }
+  }
+};
+```
+
 ### Not JSX
 
 If a Vue story defines its view with a template string then it will be displayed

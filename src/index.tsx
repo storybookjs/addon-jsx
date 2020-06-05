@@ -3,6 +3,7 @@
 import React from 'react';
 import {
   addons,
+  makeDecorator,
   StoryContext,
   StoryFn,
   StoryApi,
@@ -157,39 +158,42 @@ const defaultOpts = {
 };
 
 /** Extract components from story and emit them to the panel */
-export const jsxDecorator = (
-  storyFn: StoryFn<React.ReactElement<any>>,
-  parameters?: StoryContext
-) => {
-  const channel = addons.getChannel();
-  const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
-  const options = {
-    ...defaultOpts,
-    ...((parameters && parameters.parameters.jsx) || {})
-  } as Required<JSXOptions>;
+export const jsxDecorator = makeDecorator({
+  name: 'jsx',
+  parameterName: 'jsx',
+  wrapper: (storyFn: any, parameters: StoryContext) => {
+    const story: ReturnType<typeof storyFn> & VueComponent = storyFn();
 
-  let components: ComponentMap = {};
-  let jsx = '';
+    const channel = addons.getChannel();
 
-  if (story.template) {
-    if (options.enableBeautify) {
-      jsx = beautifyHTML(story.template, options);
+    const options = {
+      ...defaultOpts,
+      ...((parameters && parameters.parameters.jsx) || {})
+    } as Required<JSXOptions>;
+
+    let components: ComponentMap = {};
+    let jsx = '';
+
+    if (story.template) {
+      if (options.enableBeautify) {
+        jsx = beautifyHTML(story.template, options);
+      } else {
+        jsx = story.template;
+      }
     } else {
-      jsx = story.template;
-    }
-  } else {
-    const rendered = renderJsx(story, options);
+      const rendered = renderJsx(story, options);
 
-    if (rendered) {
-      jsx = rendered;
-      components = getDocs(story);
+      if (rendered) {
+        jsx = rendered;
+        components = getDocs(story);
+      }
     }
+
+    channel.emit(EVENTS.ADD_JSX, (parameters || {}).id, jsx, components);
+
+    return story;
   }
-
-  channel.emit(EVENTS.ADD_JSX, (parameters || {}).id, jsx, components);
-
-  return story;
-};
+});
 
 export default {
   addWithJSX(this: StoryApi, kind: string, storyFn: StoryFn<any>) {
