@@ -1,3 +1,15 @@
+# v7.3.1 (Fri Jul 10 2020)
+
+#### 🐛 Bug Fix
+
+- docs overhaul [#115](https://github.com/storybookjs/addon-jsx/pull/115) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.3.0 (Fri Jun 05 2020)
 
 :tada: This release contains work from a new contributor! :tada:
