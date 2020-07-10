@@ -175,6 +175,33 @@ addParameters({
 });
 ```
 
+## Function Props
+
+If you provide a funtion to one of your props `storybook-addon-jsx` will display that functions `toString` result.
+This is usaully very ugly.
+To override this include the following util function that will print an easiy to read string.
+
+```tsx
+/**
+ * Overrides the toString on a function so that it addon-jsx prints
+ * the callbacks in a copy-paste-able way.
+ */
+export const callback = <T extends Function>(fn: T): T => {
+  /** A toString to render the function in storybook */
+  // eslint-disable-next-line no-param-reassign
+  fn.toString = () => "() => {}";
+  return fn;
+};
+```
+
+This works well with the `@storybook/addon-actions` too.
+
+```tsx
+export ExampleStory = () => (
+  <TestComponent onClick={callback(action('onClick'))} />
+)
+```
+
 ## Including DocGen Information
 
 This addon will display prop type information while hovering over a component or prop.
