@@ -1,3 +1,19 @@
+# v7.3.2 (Wed Jul 15 2020)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@lisamartin00](https://github.com/lisamartin00), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix unique key prop warning [#117](https://github.com/storybookjs/addon-jsx/pull/117) ([@lisamartin00](https://github.com/lisamartin00))
+
+#### Authors: 1
+
+- [@lisamartin00](https://github.com/lisamartin00)
+
+---
+
 # v7.3.1 (Fri Jul 10 2020)
 
 #### 🐛 Bug Fix
