@@ -1,3 +1,15 @@
+# v7.3.3 (Fri Jul 17 2020)
+
+#### 🐛 Bug Fix
+
+- fix skip [#119](https://github.com/storybookjs/addon-jsx/pull/119) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.3.2 (Wed Jul 15 2020)
 
 :tada: This release contains work from a new contributor! :tada:
