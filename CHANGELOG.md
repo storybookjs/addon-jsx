@@ -1,3 +1,15 @@
+# v7.3.4 (Thu Aug 13 2020)
+
+#### 🐛 Bug Fix
+
+- hide default props as the default [#122](https://github.com/storybookjs/addon-jsx/pull/122) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.3.3 (Fri Jul 17 2020)
 
 #### 🐛 Bug Fix
