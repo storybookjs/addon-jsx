@@ -153,6 +153,7 @@ const getDocs = (story: React.ReactElement) => {
 
 const defaultOpts = {
   skip: 0,
+  showDefaultProps: true,
   showFunctions: true,
   enableBeautify: true
 };
