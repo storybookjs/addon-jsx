@@ -153,6 +153,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "semihraifgurel",
+      "name": "Semih Raif Gürel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29544960?v=4",
+      "profile": "https://github.com/semihraifgurel",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
