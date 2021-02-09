@@ -42,15 +42,17 @@ const JSX = ({ ob, active }: JSXProps) => {
   const copyJsx = React.useCallback(() => copy(code), [code]);
 
   return active ? (
-    <Container>
-      <SyntaxHighlighter
-        language="jsx"
-        format={false}
-        renderer={jsxRenderer(components)}
-        wrapLines={false}
-      >
-        {code}
-      </SyntaxHighlighter>
+    <>
+      <Container>
+        <SyntaxHighlighter
+          language="jsx"
+          format={false}
+          renderer={jsxRenderer(components)}
+          wrapLines={false}
+        >
+          {code}
+        </SyntaxHighlighter>
+      </Container>
       <ActionBar
         actionItems={[
           {
@@ -59,7 +61,7 @@ const JSX = ({ ob, active }: JSXProps) => {
           }
         ]}
       />
-    </Container>
+    </>
   ) : null;
 };
 
