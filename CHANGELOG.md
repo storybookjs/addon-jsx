@@ -1,3 +1,19 @@
+# v7.3.5 (Tue Feb 09 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Semih Raif Gürel ([@semihraifgurel](https://github.com/semihraifgurel)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Custom component name [#132](https://github.com/storybookjs/addon-jsx/pull/132) (semih@weptile.com)
+
+#### Authors: 1
+
+- Semih Raif Gürel ([@semihraifgurel](https://github.com/semihraifgurel))
+
+---
+
 # v7.3.4 (Thu Aug 13 2020)
 
 #### 🐛 Bug Fix
