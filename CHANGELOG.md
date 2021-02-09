@@ -1,3 +1,15 @@
+# v7.3.6 (Tue Feb 09 2021)
+
+#### 🐛 Bug Fix
+
+- fix copy button positioning on long jsx content [#135](https://github.com/storybookjs/addon-jsx/pull/135) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v7.3.5 (Tue Feb 09 2021)
 
 :tada: This release contains work from a new contributor! :tada:
