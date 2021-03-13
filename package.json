@@ -100,5 +100,13 @@
       "first-time-contributor",
       "all-contributors"
     ]
+  },
+  "keywords": [
+    "storybook-addon",
+    "code"
+  ],
+  "storybook": {
+    "icon": "https://raw.githubusercontent.com/storybookjs/addon-jsx/HEAD/storybook-jsx.png",
+    "displayName": "JSX Preview"
   }
 }
