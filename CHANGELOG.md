@@ -1,3 +1,15 @@
+# v7.3.7 (Wed Mar 31 2021)
+
+#### 🐛 Bug Fix
+
+- Support React 17 peer dependency [#142](https://github.com/storybookjs/addon-jsx/pull/142) ([@leepowelldev](https://github.com/leepowelldev))
+
+#### Authors: 1
+
+- Lee Powell ([@leepowelldev](https://github.com/leepowelldev))
+
+---
+
 # v7.3.6 (Tue Feb 09 2021)
 
 #### 🐛 Bug Fix
