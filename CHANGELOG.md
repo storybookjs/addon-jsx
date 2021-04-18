@@ -1,3 +1,15 @@
+# v7.3.8 (Sun Apr 18 2021)
+
+#### 🐛 Bug Fix
+
+- Bump gitlog from 4.0.0 to 4.0.4 [#146](https://github.com/storybookjs/addon-jsx/pull/146) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.3.7 (Wed Mar 31 2021)
 
 #### 🐛 Bug Fix
