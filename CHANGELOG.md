@@ -1,3 +1,15 @@
+# v7.3.9 (Wed Apr 21 2021)
+
+#### 🐛 Bug Fix
+
+- Bump ssri from 6.0.1 to 6.0.2 [#148](https://github.com/storybookjs/addon-jsx/pull/148) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.3.8 (Sun Apr 18 2021)
 
 #### 🐛 Bug Fix
