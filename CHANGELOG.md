@@ -1,3 +1,15 @@
+# v7.3.10 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- Bump hosted-git-info from 2.8.5 to 2.8.9 [#152](https://github.com/storybookjs/addon-jsx/pull/152) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.3.9 (Wed Apr 21 2021)
 
 #### 🐛 Bug Fix
