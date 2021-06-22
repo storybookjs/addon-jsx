@@ -4,9 +4,7 @@ import { storiesOf } from '@storybook/react';
 import Simple from '../components/simple';
 
 storiesOf('With Props', module)
-  .addWithJSX('No children - No options', () => (
-    <Simple foo="bar" test="test" value={true} />
-  ))
+  .addWithJSX('No children - No options', () => <Simple />)
   .addWithJSX(
     'No children - Rename',
     () => <Simple test="test" value={true} />,

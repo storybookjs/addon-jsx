@@ -83,7 +83,7 @@ const renderJsx = (code: React.ReactElement, options: Required<JSXOptions>) => {
     }
   }
 
-  if (typeof code === 'undefined') {
+  if (typeof renderedJSX === 'undefined') {
     // eslint-disable-next-line no-console
     return console.warn('Too many skip or undefined component');
   }
@@ -102,7 +102,7 @@ const renderJsx = (code: React.ReactElement, options: Required<JSXOptions>) => {
         }
       : options;
 
-  return React.Children.map(code, c => {
+  return React.Children.map(renderedJSX, c => {
     let string = applyBeforeRender(
       reactElementToJSXString(c, ooo as Options),
       options
@@ -159,6 +159,7 @@ const getDocs = (story: React.ReactElement) => {
 
 const defaultOpts = {
   skip: 0,
+  showDefaultProps: true,
   showFunctions: true,
   enableBeautify: true,
   filterProps: val => val !== undefined

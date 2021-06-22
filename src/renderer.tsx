@@ -196,11 +196,12 @@ function createElement({
       if (title) {
         return (
           <WithTooltip
+            key={key}
             placement="bottom"
             trigger="hover"
             tooltip={<TooltipMessage title={title} desc={message} />}
           >
-            <TagName key={key} {...props}>
+            <TagName {...props}>
               {children}
             </TagName>
           </WithTooltip>

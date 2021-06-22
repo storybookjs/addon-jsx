@@ -144,6 +144,34 @@
         "doc",
         "code"
       ]
+    },
+    {
+      "login": "lisamartin00",
+      "name": "lisamartin00",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6465955?v=4",
+      "profile": "https://github.com/lisamartin00",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "semihraifgurel",
+      "name": "Semih Raif Gürel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/29544960?v=4",
+      "profile": "https://github.com/semihraifgurel",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "leepowelldev",
+      "name": "Lee Powell",
+      "avatar_url": "https://avatars.githubusercontent.com/u/602052?v=4",
+      "profile": "https://leepowell.dev",
+      "contributions": [
+        "infra",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
