@@ -1,3 +1,22 @@
+# v7.3.12 (Tue Jun 22 2021)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- ci: run CodeQL analysis [#156](https://github.com/storybookjs/addon-jsx/pull/156) ([@jimmyandrade](https://github.com/jimmyandrade))
+- Bump markdown-to-jsx from 6.10.3 to 6.11.4 [#125](https://github.com/storybookjs/addon-jsx/pull/125) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump elliptic from 6.5.1 to 6.5.4 [#137](https://github.com/storybookjs/addon-jsx/pull/137) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Jimmy Andrade ([@jimmyandrade](https://github.com/jimmyandrade))
+
+---
+
 # v7.3.11 (Tue Jun 22 2021)
 
 #### 🐛 Bug Fix
