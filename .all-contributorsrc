@@ -162,6 +162,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "leepowelldev",
+      "name": "Lee Powell",
+      "avatar_url": "https://avatars.githubusercontent.com/u/602052?v=4",
+      "profile": "https://leepowell.dev",
+      "contributions": [
+        "infra",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7

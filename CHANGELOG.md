@@ -1,3 +1,51 @@
+# v7.3.10 (Thu May 13 2021)
+
+#### 🐛 Bug Fix
+
+- Bump hosted-git-info from 2.8.5 to 2.8.9 [#152](https://github.com/storybookjs/addon-jsx/pull/152) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
+# v7.3.9 (Wed Apr 21 2021)
+
+#### 🐛 Bug Fix
+
+- Bump ssri from 6.0.1 to 6.0.2 [#148](https://github.com/storybookjs/addon-jsx/pull/148) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
+# v7.3.8 (Sun Apr 18 2021)
+
+#### 🐛 Bug Fix
+
+- Bump gitlog from 4.0.0 to 4.0.4 [#146](https://github.com/storybookjs/addon-jsx/pull/146) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
+# v7.3.7 (Wed Mar 31 2021)
+
+#### 🐛 Bug Fix
+
+- Support React 17 peer dependency [#142](https://github.com/storybookjs/addon-jsx/pull/142) ([@leepowelldev](https://github.com/leepowelldev))
+
+#### Authors: 1
+
+- Lee Powell ([@leepowelldev](https://github.com/leepowelldev))
+
+---
+
 # v7.3.6 (Tue Feb 09 2021)
 
 #### 🐛 Bug Fix
