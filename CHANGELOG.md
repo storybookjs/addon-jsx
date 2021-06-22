@@ -1,3 +1,25 @@
+# v7.3.11 (Tue Jun 22 2021)
+
+#### 🐛 Bug Fix
+
+- Bump websocket-extensions from 0.1.3 to 0.1.4 [#111](https://github.com/storybookjs/addon-jsx/pull/111) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump yargs-parser from 13.1.1 to 13.1.2 [#127](https://github.com/storybookjs/addon-jsx/pull/127) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump nested-object-assign from 1.0.3 to 1.0.4 [#133](https://github.com/storybookjs/addon-jsx/pull/133) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ini from 1.3.5 to 1.3.8 [#136](https://github.com/storybookjs/addon-jsx/pull/136) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump lodash from 4.17.15 to 4.17.21 [#143](https://github.com/storybookjs/addon-jsx/pull/143) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump y18n from 4.0.0 to 4.0.3 [#147](https://github.com/storybookjs/addon-jsx/pull/147) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump postcss from 7.0.18 to 7.0.36 [#155](https://github.com/storybookjs/addon-jsx/pull/155) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump handlebars from 4.4.5 to 4.7.7 [#144](https://github.com/storybookjs/addon-jsx/pull/144) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ua-parser-js from 0.7.20 to 0.7.28 [#150](https://github.com/storybookjs/addon-jsx/pull/150) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump url-parse from 1.4.7 to 1.5.1 [#151](https://github.com/storybookjs/addon-jsx/pull/151) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump merge-deep from 3.0.2 to 3.0.3 [#154](https://github.com/storybookjs/addon-jsx/pull/154) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.3.10 (Thu May 13 2021)
 
 #### 🐛 Bug Fix
