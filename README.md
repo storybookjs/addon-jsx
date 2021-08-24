@@ -321,6 +321,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/lisamartin00"><img src="https://avatars0.githubusercontent.com/u/6465955?v=4" width="100px;" alt=""/><br /><sub><b>lisamartin00</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=lisamartin00" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/semihraifgurel"><img src="https://avatars.githubusercontent.com/u/29544960?v=4" width="100px;" alt=""/><br /><sub><b>Semih Raif Gürel</b></sub></a><br /><a href="https://github.com/storybookjs/addon-jsx/commits?author=semihraifgurel" title="Documentation">📖</a></td>
     <td align="center"><a href="https://leepowell.dev"><img src="https://avatars.githubusercontent.com/u/602052?v=4" width="100px;" alt=""/><br /><sub><b>Lee Powell</b></sub></a><br /><a href="#infra-leepowelldev" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/storybookjs/addon-jsx/commits?author=leepowelldev" title="Code">💻</a></td>
+    <td align="center"><a href="http://jimmyandrade.com"><img src="https://avatars.githubusercontent.com/u/2307245?v=4" width="100px;" alt=""/><br /><sub><b>Jimmy Andrade</b></sub></a><br /><a href="#infra-jimmyandrade" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
   </tr>
 </table>
 
