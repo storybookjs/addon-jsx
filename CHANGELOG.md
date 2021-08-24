@@ -1,3 +1,16 @@
+# v7.3.13 (Tue Aug 24 2021)
+
+#### 🐛 Bug Fix
+
+- Bump tar from 4.4.13 to 4.4.15 [#157](https://github.com/storybookjs/addon-jsx/pull/157) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump path-parse from 1.0.6 to 1.0.7 [#158](https://github.com/storybookjs/addon-jsx/pull/158) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v7.3.12 (Tue Jun 22 2021)
 
 :tada: This release contains work from a new contributor! :tada:
