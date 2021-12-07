@@ -1,5 +1,6 @@
+import { TooltipMessage, WithTooltip } from '@storybook/components';
+import Markdown from 'markdown-to-jsx';
 import React, { ComponentProps } from 'react';
-import { WithTooltip, TooltipMessage } from '@storybook/components';
 import PrettyPropType from 'storybook-pretty-props';
 
 type StyleSheet = Record<string, React.CSSProperties>;
@@ -165,7 +166,7 @@ function createElement({
 
         if (docs.description) {
           title = children;
-          message = <div>{docs.description}</div>;
+          message = <Markdown>{docs.description}</Markdown>;
         }
 
         componentStack.push(name);
@@ -187,7 +188,7 @@ function createElement({
               <div style={{ color: 'green', fontWeight: 'bold' }}>
                 <PrettyPropType propType={docs.type} />
               </div>
-              {docs.description}
+              <Markdown>{docs.description || ''}</Markdown>
             </div>
           );
         }
@@ -201,9 +202,7 @@ function createElement({
             trigger="hover"
             tooltip={<TooltipMessage title={title} desc={message} />}
           >
-            <TagName {...props}>
-              {children}
-            </TagName>
+            <TagName {...props}>{children}</TagName>
           </WithTooltip>
         );
       }
