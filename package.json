@@ -91,7 +91,7 @@
     "@storybook/core-events": ">= 5.x",
     "@storybook/theming": ">= 5.x",
     "react": "^16.2.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.2.0 || ^17.0.0"
+    "react-dom": "^16.2.0 || ^17.0.0 || ^18.0.0""
   },
   "auto": {
     "plugins": [
