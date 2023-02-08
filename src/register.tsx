@@ -18,8 +18,20 @@ export interface Listener {
 /** A function that lets the panel listen to storybook event */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const observable = (channel: Channel, api: any) => (listener: Listener) => {
-  channel.on(EVENTS.ADD_JSX, listener.next('jsx'));
-  api.on(STORY_RENDERED, listener.next('current'));
+  const addJsxListener = listener.next('jsx');
+  const storyRenderedListener = listener.next('current');
+  channel.on(EVENTS.ADD_JSX, addJsxListener);
+  api.on(STORY_RENDERED, storyRenderedListener);
+
+  /**
+   * Unregisters the storybook event listeners.
+   */
+  const unsubscribe = () => {
+    channel.off(EVENTS.ADD_JSX, addJsxListener);
+    api.off(STORY_RENDERED, storyRenderedListener);
+  };
+
+  return unsubscribe;
 };
 
 addons.register(ADDON_ID, api => {

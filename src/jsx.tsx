@@ -13,7 +13,7 @@ const Container = styled.div(({ theme }) => ({
 interface JSXProps {
   /** Whether the panel is active */
   active: boolean;
-  ob(listener: Listener): void;
+  ob(listener: Listener): () => void;
 }
 
 /** The panel that renders the jsx for the story */
@@ -24,7 +24,7 @@ const JSX = ({ ob, active }: JSXProps) => {
   );
 
   React.useEffect(() => {
-    ob({
+    const unsubscribe = ob({
       next: type => {
         if (type === 'jsx') {
           return (id: string, newJsx: string, components: ComponentMap) =>
@@ -34,6 +34,8 @@ const JSX = ({ ob, active }: JSXProps) => {
         return setCurrent;
       }
     });
+
+    return () => unsubscribe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
