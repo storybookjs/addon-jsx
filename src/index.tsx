@@ -34,6 +34,12 @@ interface JSXOptions extends HTMLBeautifyOptions {
   displayName?: string | Options['displayName'];
   /** A function ran before the story is rendered */
   onBeforeRender?(dom: string): string;
+  displayName?: string | Options['displayName'];
+  /** 
+   * - If an array of strings is passed, filter out any prop who's name is in the array. For example ['key'] will suppress the key="" prop from being added.
+   * - If a function is passed, it will be called for each prop with two arguments, the prop value and key, and will filter out any that return false. 
+   **/
+  filterProps?: string[] | (val: any, key: string) => boolean, default val => val !== undefined;
 }
 
 /** Run the user supplied onBeforeRender function if it exists */
@@ -155,7 +161,8 @@ const defaultOpts = {
   skip: 0,
   showDefaultProps: true,
   showFunctions: true,
-  enableBeautify: true
+  enableBeautify: true,
+  filterProps: val => val !== undefined
 };
 
 /** Extract components from story and emit them to the panel */
