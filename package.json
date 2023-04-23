@@ -41,6 +41,7 @@
   "dependencies": {
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
+    "markdown-to-jsx": "^7.1.5",
     "react-element-to-jsx-string": "^14.3.1",
     "storybook-pretty-props": "^1.0.3"
   },
