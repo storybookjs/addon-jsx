@@ -41,7 +41,7 @@
   "dependencies": {
     "copy-to-clipboard": "^3.0.8",
     "js-beautify": "^1.8.8",
-    "react-element-to-jsx-string": "^14.3.1",
+    "react-element-to-jsx-string": "15",
     "storybook-pretty-props": "^1.0.3"
   },
   "devDependencies": {
@@ -90,8 +90,8 @@
     "@storybook/components": ">= 5.x",
     "@storybook/core-events": ">= 5.x",
     "@storybook/theming": ">= 5.x",
-    "react": "^16.2.0 || ^17.0.0",
-    "react-dom": "^16.2.0 || ^17.0.0"
+    "react": "^16.2.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.2.0 || ^17.0.0 || ^18.0.0"
   },
   "auto": {
     "plugins": [
